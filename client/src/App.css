@@ -1,0 +1,78 @@
+.App {
+    text-align: center;
+  }
+
+  .body{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .header{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    background-color: #90ac9a;
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2);
+    height: 5rem;
+  }
+  .header img {
+    padding-left: 1rem;
+  }
+  .header a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    font: Helvetica;
+    
+
+  }
+  .register{
+   
+    border-radius: 1rem;
+    border: black;
+  }
+
+  .card{
+    border-radius: 1rem;
+   
+    margin-left: 5%;
+    margin-top: 5%;
+    padding-bottom: 3%;
+    margin-right: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-bottom: 5%;
+  }
+  .card input label {
+    display: block;
+  }
+
+  .card form input {
+    display: block;
+    padding-bottom: 1%;
+  }
+
+  .card form{
+    margin-left: 5%;
+  }
+  
+
+  .btn {
+    background-color:#526057;
+    border: none;
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2);
+  }
+
+  .card-title{
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    
+  }
+  .card-title h2 {
+    color: rgb(31, 31, 31) ;
+  }
+
+  .introduction{
+    
+    margin-bottom: 2%;
+  }
