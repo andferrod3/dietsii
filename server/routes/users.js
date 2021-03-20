@@ -6,9 +6,9 @@ const User = require("../models/user.model");
 // Register
 router.post("/register", async (req, res) => {
 try {
-    let { email, password, passwordCheck, name, surname, phone, address, birth } = req.body;
+    let { email, password, passwordCheck, name, surname, phone, address, birth, role } = req.body;
     // validate
-    if (!email || !password || !passwordCheck || !name || !surname || !phone || !address || !birth )
+    if (!email || !password || !passwordCheck || !name || !surname || !phone || !address || !birth || !role)
         return res.status(400).json({ msg: "Faltan campos por rellenar" });
 
     if (password.length < 5)
@@ -37,6 +37,7 @@ try {
         phone,
         address,
         birth,
+        role,
         });
     const savedUser = await newUser.save();
     res.json(savedUser);
