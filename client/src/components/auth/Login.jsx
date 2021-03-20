@@ -26,15 +26,19 @@ err.response.data.msg && setError(err.response.data.msg)
 };
 return (
 <div className="login">
+<div class="card">
+        <div class="card-title">
 <h2>Login</h2>
+</div>
 {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
 <form onSubmit={submit}>
-<label>Email: </label>
-<input type="email" id="email" onChange={e => setEmail(e.target.value)}/>
-<label>Contraseña: </label>
-<input type="password" id="password" onChange={e => setPassword(e.target.value)}/>
-<input type="submit" value="Login" className="btn btn-primary" />
+<label class="field">Email: </label>
+<input class="introduction" type="email" id="email" onChange={e => setEmail(e.target.value)}/>
+<label class="field">Contraseña: </label>
+<input class="introduction" type="password" id="password" onChange={e => setPassword(e.target.value)}/>
+<input type="submit" value="Login" className="btn btn-primary aux" />
 </form>
+</div>
 </div>
 );
 }

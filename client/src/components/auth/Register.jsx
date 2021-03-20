@@ -56,7 +56,7 @@ return (
 <label class="field" >Contraseña: </label>
 <input class="introduction" type="password" id="password" onChange={e => setPassword(e.target.value)}/>
 <input class="introduction" type="password" placeholder="Confirma contraseña" onChange={e => setPasswordCheck(e.target.value)}/>
-<input type="submit" value="Registrar" className="btn btn-primary" />
+<input type="submit" value="Registrar" className="btn btn-primary aux" />
 </form>
 </div>
 </div>
