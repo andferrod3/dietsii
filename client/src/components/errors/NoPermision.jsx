@@ -1,22 +1,20 @@
 import React, { useEffect, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../../context/userContext';
-function Home () {
+import noPermision from './noPermision.png';
+import './NoPermision.css'
+function NoPermision () {
 const {userData} = useContext(UserContext);
 const history = useHistory();
+
 useEffect(() => {
 }, []);
 return (
 <div>
-{userData.user ? (
-<h1>Bienvenido {userData.user.name}</h1>
-) : (
-<>
-<h2>No has iniciado sesión</h2>
-<Link to="/login">Login</Link>
-</>
-)}
+
+<img class="noPermision" src={noPermision} width="500" height="500" />
+
 </div>
 );
 }
-export default Home;
+export default NoPermision;

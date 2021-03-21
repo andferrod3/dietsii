@@ -12,13 +12,14 @@ const [surname, setSurname] = useState();
 const [address, setAddress] = useState();
 const [phone, setPhone] = useState();
 const [birth, setBirth] = useState();
+const [role, setRole] = useState();
 const [error, setError] = useState();
 const { setUserData } = useContext(UserContext);
 const history = useHistory();
 const submit = async (e) => {
 e.preventDefault();
 try{
-const newUser = {email, password, passwordCheck, surname, name, address, phone, birth};
+const newUser = {email, password, passwordCheck, surname, name, address, phone, birth, role};
 await axios.post("http://localhost:5000/users/register", newUser);
 const loginResponse = await axios.post("http://localhost:5000/users/login", {
 email, password, 
@@ -33,6 +34,8 @@ history.push("/");
 err.response.data.msg && setError(err.response.data.msg)
 }
 };
+
+
 return (
 <div className="register">
     <div class="card">
@@ -41,6 +44,13 @@ return (
 </div>
 {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
 <form onSubmit={submit}>
+<label class="field">Registrarse como: </label>
+<select id="role" onChange={e => setRole(e.target.value)} >
+            <option id="" value="">---Selecciona uno---</option>
+            <option id="role" value="Nutricionista">Nutricionista</option>
+            <option id="role" value="Entrenador">Entrenador</option>
+            <option id="role" value="Paciente">Paciente</option>
+</select>
 <label class="field">Nombre: </label>
 <input class="introduction" type="text" id="name" onChange={e => setName(e.target.value)}/>
 <label class="field">Apellidos: </label>

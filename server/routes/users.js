@@ -6,9 +6,9 @@ const User = require("../models/user.model");
 // Register
 router.post("/register", async (req, res) => {
 try {
-    let { email, password, passwordCheck, name, surname, phone, address, birth } = req.body;
+    let { email, password, passwordCheck, name, surname, phone, address, birth, role } = req.body;
     // validate
-    if (!email || !password || !passwordCheck || !name || !surname || !phone || !address || !birth )
+    if (!email || !password || !passwordCheck || !name || !surname || !phone || !address || !birth || !role)
         return res.status(400).json({ msg: "Faltan campos por rellenar" });
 
     if (password.length < 5)
@@ -27,6 +27,11 @@ try {
         .status(400)
         .json({ msg: "Ese email ya se encuentra en uso" });
 
+    if((role != "Nutricionista")&&(role != "Entrenador")&&(role != "Paciente"))
+        return res
+        .status(400)
+        .json({msg: "Elige uno"});
+
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
     const newUser = new User({
@@ -37,6 +42,7 @@ try {
         phone,
         address,
         birth,
+        role,
         });
     const savedUser = await newUser.save();
     res.json(savedUser);
@@ -66,6 +72,7 @@ try {
         user: {
         id: user._id,
         name: user.name,
+        role: user.role,
         },
         });
 
@@ -108,6 +115,7 @@ const user = await User.findById(req.user);
 res.json({
     name: user.name,
     id: user._id,
+    role: user.role,
 });
 });
 module.exports = router;

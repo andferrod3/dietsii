@@ -15,9 +15,11 @@ user: undefined
 })
 localStorage.setItem("auth-token","");
 };
+
+/*
 return (
 <nav className="auth-options">
-{userData.user ? (
+{userData.user && userData.user.role == "Nutricionista"? (
     <>
 <button className="btn btn-primary mr-2" onClick={createMovie}>Create Movie</button>
 <button className="btn btn-primary mr-2" onClick={listMovies}>List Movie</button>
@@ -30,6 +32,38 @@ return (
 </>
 )}
 </nav>
-)
+)*/
+
+if(userData.user && userData.user.role == "Nutricionista"){
+
+    return (<nav className="auth-options">
+                <button className="btn btn-primary mr-2" onClick={createMovie}>Create Movie</button>
+                <button className="btn btn-primary mr-2" onClick={listMovies}>List Movie</button>
+                <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
+            </nav>)
+
+}else if(userData.user && userData.user.role == "Entrenador"){
+
+    return (<nav className="auth-options">
+                <button className="btn btn-primary mr-2" onClick={createMovie}>Create Movie</button>
+               
+                <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
+            </nav>)
+
+}else if(userData.user && userData.user.role == "Paciente"){
+
+    return (<nav className="auth-options">
+               
+                <button className="btn btn-primary mr-2" onClick={listMovies}>List Movie</button>
+                <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
+            </nav>)
+
+}else{
+    return (<nav className="auth-options">
+                <button className="btn btn-primary mr-2" onClick={register}>Registrarse</button>
+                <button className="btn btn-primary mr-2" onClick={login}>Login</button>
+            </nav>)
+}
+
 }
 export default AuthOptions;
