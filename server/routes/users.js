@@ -27,6 +27,11 @@ try {
         .status(400)
         .json({ msg: "Ese email ya se encuentra en uso" });
 
+    if((role != "Nutricionista")&&(role != "Entrenador")&&(role != "Paciente"))
+        return res
+        .status(400)
+        .json({msg: "Elige uno"});
+
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
     const newUser = new User({
@@ -67,6 +72,7 @@ try {
         user: {
         id: user._id,
         name: user.name,
+        role: user.role,
         },
         });
 
@@ -109,6 +115,7 @@ const user = await User.findById(req.user);
 res.json({
     name: user.name,
     id: user._id,
+    role: user.role,
 });
 });
 module.exports = router;

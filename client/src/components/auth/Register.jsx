@@ -34,6 +34,8 @@ history.push("/");
 err.response.data.msg && setError(err.response.data.msg)
 }
 };
+
+
 return (
 <div className="register">
     <div class="card">
@@ -43,8 +45,12 @@ return (
 {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
 <form onSubmit={submit}>
 <label class="field">Registrarse como: </label>
-<input class="introduction" type="text" id="role" onChange={e => setRole(e.target.value)}/>
-
+<select id="role" onChange={e => setRole(e.target.value)} >
+            <option id="" value="">---Selecciona uno---</option>
+            <option id="role" value="Nutricionista">Nutricionista</option>
+            <option id="role" value="Entrenador">Entrenador</option>
+            <option id="role" value="Paciente">Paciente</option>
+</select>
 <label class="field">Nombre: </label>
 <input class="introduction" type="text" id="name" onChange={e => setName(e.target.value)}/>
 <label class="field">Apellidos: </label>

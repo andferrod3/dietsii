@@ -17,6 +17,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import UserContext from './context/userContext';
 import './App.css';
+import NoPermision from './components/errors/NoPermision';
 
 
 
@@ -49,28 +50,46 @@ function App() {
         }
         checkLoggedIn();
         }, []);
-            return (
-            <BrowserRouter>
-            <UserContext.Provider value={{ userData, setUserData }}>
-            <Header />
-            <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            
-            <Route path="/chat/join" exact component={Join} />
-                <Route path="/chat" component={Chat} />
-                <Route path="/movies/list" exact component={MoviesList} />
-                <Route path="/movies/create" exact component={MoviesInsert} />
-                <Route
-                    path="/movies/update/:id"
-                    exact
-                    component={MoviesUpdate}
-                />
-            </Switch>
-            </UserContext.Provider>
-            </BrowserRouter>
-        );
+
+            if(userData.user){
+                return (
+                    <BrowserRouter>
+                    <UserContext.Provider value={{ userData, setUserData }}>
+                    <Header />
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/chat/join" exact component={Join} />
+                        <Route path="/chat" component={Chat} />
+                        <Route path="/movies/list" exact component={MoviesList} />
+                        <Route path="/movies/create" exact component={MoviesInsert} />
+                        <Route path="/movies/update/:id" exact component={MoviesUpdate} />
+                        <Route path="/register" component={NoPermision} />
+                        <Route path="/login" component={NoPermision} />
+                    </Switch>
+                    </UserContext.Provider>
+                    </BrowserRouter>
+                );
+            }else{
+                return (
+                    <BrowserRouter>
+                    <UserContext.Provider value={{ userData, setUserData }}>
+                    <Header />
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/register" component={Register} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/chat/join" exact component={NoPermision} />
+                        <Route path="/chat" component={NoPermision} />
+                        <Route path="/movies/list" exact component={NoPermision} />
+                        <Route path="/movies/create" exact component={NoPermision} />
+                        <Route path="/movies/update/:id" exact component={NoPermision} />
+
+                    </Switch>
+                    </UserContext.Provider>
+                    </BrowserRouter>
+                );
+            }
+           
 }
 
 
