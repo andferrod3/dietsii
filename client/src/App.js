@@ -8,6 +8,7 @@ import Chat from './components/Chat/Chat';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { MoviesList, MoviesInsert, MoviesUpdate } from './pages';
+import { CitasList, CitasInsert, CitasUpdate, CitasHome } from './components/cita';
 import  {useState, useEffect } from 'react';
 import { BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
@@ -60,9 +61,10 @@ function App() {
                         <Route exact path="/" component={Home} />
                         <Route path="/chat/join" exact component={Join} />
                         <Route path="/chat" component={Chat} />
-                        <Route path="/movies/list" exact component={MoviesList} />
-                        <Route path="/movies/create" exact component={MoviesInsert} />
-                        <Route path="/movies/update/:id" exact component={MoviesUpdate} />
+                        <Route path="/citas" exact component={CitasHome} />
+                        <Route path="/citas/list" exact component={CitasList} />
+                        <Route path="/citas/create" exact component={CitasInsert} />
+                        <Route path="/citas/update/:id" exact component={CitasUpdate} />
                         <Route path="/register" component={NoPermision} />
                         <Route path="/login" component={NoPermision} />
                     </Switch>

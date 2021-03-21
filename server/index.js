@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 const router = require('./router');
 const bd = require('./bd');
 const movieRouter = require('./routes/movie-router');
+const citaRouter = require('./routes/cita-router');
 
 
 const app = express();
@@ -74,6 +75,7 @@ io.on('connection', (socket) => {
 
 app.use(router);
 app.use('/api', movieRouter);
+app.use('/api', citaRouter);
 
 app.use("/users", require("./routes/users"));
 
