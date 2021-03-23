@@ -8,7 +8,7 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment'
 import CitasInsert from './CitasInsert';
-import CitasList from './CitasList';
+import CitasList from './PacientesList';
 import './CitasHome.css'
 
 
@@ -25,9 +25,9 @@ const changeDate = (e) => {
 
 return (
 
-<div className="cita">
+<div className="Pacientes">
     
-<h2 class="titlepage">Apartado de citas</h2>
+<h2 clas="titlepage">Apartado de Pacientes</h2>
 
 <div class= "row">
     
@@ -36,7 +36,7 @@ return (
    value={dateState}
    onChange={changeDate}
  />
- <p class="cardp">La fecha seleccionada es <b>{moment(dateState).format('DD/MM/yyyy')}</b></p>
+ <p>La fecha seleccionada es <b>{moment(dateState).format('DD/MM/yyyy')}</b></p>
   </div>
 
 

@@ -1,3 +1,4 @@
+const { user } = require('../bd')
 const Cita = require('../models/cita.model')
 
 createCita = (req, res) => {
@@ -113,7 +114,27 @@ getCitas = async (req, res) => {
                 .status(404)
                 .json({ success: false, error: `Cita no encontrada` })
         }
-        return res.status(200).json({ success: true, data: citas })
+        User.populate(citas, {path: "pacient"},function(err, citas){
+            return res.status(200).json({ success: true, data: citas })
+                    }); 
+
+    }).catch(err => console.log(err))
+}
+
+getCitasToProfessional = async (req, res) => {
+    await Cita.find({ professional: req.params.id }, (err, citas) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        if (!citas.length) {
+            return res
+                .status(404)
+                .json({ success: false, error: `Cita no encontrada` })
+        }
+        User.populate(citas, {path: "pacient"},function(err, citas){
+            return res.status(200).json({ success: true, data: citas })
+                    }); 
+
     }).catch(err => console.log(err))
 }
 
@@ -123,4 +144,5 @@ module.exports = {
     deleteCita,
     getCitas,
     getCitaById,
+    getCitasToProfessional,
 }

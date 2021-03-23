@@ -85,6 +85,10 @@ function App() {
                         <Route path="/movies/list" exact component={NoPermision} />
                         <Route path="/movies/create" exact component={NoPermision} />
                         <Route path="/movies/update/:id" exact component={NoPermision} />
+                        <Route path="/citas/list" exact component={NoPermision} />
+                        <Route path="/citas/create" exact component={NoPermision} />
+                        <Route path="/citas/update/:id" exact component={NoPermision} />
+                        <Route path="/citas" exact component={NoPermision} />
 
                     </Switch>
                     </UserContext.Provider>

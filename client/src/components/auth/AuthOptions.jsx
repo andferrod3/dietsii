@@ -38,6 +38,7 @@ return (
 if(userData.user && userData.user.role == "Nutricionista"){
 
     return (<nav className="auth-options">
+                <button className="btn btn-primary mr-2" onClick={homeCita}>Pacientes</button>
                 <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
                 <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
             </nav>)

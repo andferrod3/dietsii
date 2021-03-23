@@ -15,6 +15,11 @@ export const getAllCitas = () => api.get(`/citas`)
 export const updateCitaById = (id, payload) => api.put(`/cita/${id}`, payload)
 export const deleteCitaById = id => api.delete(`/cita/${id}`)
 export const getCitaById = id => api.get(`/cita/${id}`)
+export const getCitasProfessionalById = professional => api.get(`/citas/${professional}`)
+
+
+export const getAllUsers = () => api.get(`/users`)
+export const getUserById = id => api.get(`/user/${id}`)
 
 const apis = {
     insertMovie,
@@ -28,6 +33,10 @@ const apis = {
     updateCitaById,
     deleteCitaById,
     getCitaById,
+    getCitasProfessionalById,
+
+    getAllUsers,
+    getUserById,
 }
 
 export default apis

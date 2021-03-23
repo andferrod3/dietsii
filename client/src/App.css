@@ -96,3 +96,47 @@
   .field {
     display: table-row-group;
   }
+
+  .react-calendar{
+    border-radius: 1rem;
+   
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border: none !important;
+
+
+  }
+
+  .titlepage {
+    position: relative;
+	display: inline-block;
+	padding: 5px 10px ;
+	border-radius: 10px;
+	border-bottom: 1px solid #526057;
+  margin-left: 1%;
+
+  }
+
+  .ReactTable{
+    border-radius: 1rem;
+   
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+
+  .cardp{
+    border-radius: 1rem;
+    margin-top: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding-left: 10%;
+
+  }
+
+  .react-calendar__tile--active {
+    background: #526057 !important;
+    border-radius: 10px;
+
+}

@@ -16,6 +16,8 @@ const router = require('./router');
 const bd = require('./bd');
 const movieRouter = require('./routes/movie-router');
 const citaRouter = require('./routes/cita-router');
+const userRouter = require('./routes/user-router');
+const asignacionRouter = require('./routes/asignacion-router');
 
 
 const app = express();
@@ -76,6 +78,9 @@ io.on('connection', (socket) => {
 app.use(router);
 app.use('/api', movieRouter);
 app.use('/api', citaRouter);
+app.use('/api', userRouter);
+app.use('/api', asignacionRouter);
+
 
 app.use("/users", require("./routes/users"));
 
