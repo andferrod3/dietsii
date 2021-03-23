@@ -8,6 +8,7 @@ const register = () => history.push("/register");
 const login = () => history.push("/login");
 const createMovie = () => history.push("/movies/create");
 const listMovies = () => history.push("/movies/list");
+const homeCita = () => history.push("/citas");
 const logout = () => {
 setUserData({
 token: undefined,
@@ -37,8 +38,8 @@ return (
 if(userData.user && userData.user.role == "Nutricionista"){
 
     return (<nav className="auth-options">
-                <button className="btn btn-primary mr-2" onClick={createMovie}>Create Movie</button>
-                <button className="btn btn-primary mr-2" onClick={listMovies}>List Movie</button>
+                <button className="btn btn-primary mr-2" onClick={homeCita}>Pacientes</button>
+                <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
                 <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
             </nav>)
 
