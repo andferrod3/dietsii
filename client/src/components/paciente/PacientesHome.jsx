@@ -4,16 +4,16 @@ import UserContext from '../../context/userContext';
 import ErrorNotice from "../misc/ErrorNotice";
 import api from '../api'
 import styled from 'styled-components'
-import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css';
-import moment from 'moment'
-import CitasInsert from './CitasInsert';
-import CitasList from './PacientesList';
-import './CitasHome.css'
 
 
 
-function CitasHome () {
+import './PacientesHome.css'
+import PacientesList from './PacientesList';
+import PacientesAcceptedList from './PacientesAcceptedList';
+
+
+
+function PacientesHome () {
 const {userData} = useContext(UserContext);
 const history = useHistory();
 const [dateState, setDateState] = useState(new Date())
@@ -28,27 +28,16 @@ return (
 <div className="Pacientes">
     
 <h2 clas="titlepage">Apartado de Pacientes</h2>
+<PacientesList userData = {userData}/>
+<PacientesAcceptedList userData = {userData}/>
 
 <div class= "row">
     
-<div className="bigCalendar-container">
-<Calendar 
-   value={dateState}
-   onChange={changeDate}
- />
- <p>La fecha seleccionada es <b>{moment(dateState).format('DD/MM/yyyy')}</b></p>
-  </div>
 
-
-<div class="listado">
-<CitasList dateState = {dateState} userData = {userData} />
-</div>
-
-<CitasInsert />
 </div>
 </div>
 
 
 );
 }
-export default CitasHome;
+export default PacientesHome;

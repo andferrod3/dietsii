@@ -21,6 +21,14 @@ export const getCitasProfessionalById = professional => api.get(`/citas/${profes
 export const getAllUsers = () => api.get(`/users`)
 export const getUserById = id => api.get(`/user/${id}`)
 
+export const insertAsignacion = payload => api.post(`/asignacion`, payload)
+export const getAllAsignaciones = () => api.get(`/asignaciones`)
+export const getAllAsignacionesNotAccepted = () => api.get(`/asignaciones/not-accepted`)
+export const deleteAsignacionById = id => api.delete(`/asignacion/${id}`)
+export const getAsignacionById = id => api.get(`/asignacion/${id}`)
+export const getAsignacionesProfessionalById = professional => api.get(`/asignaciones/${professional}`)
+export const acceptAsignacionById = (id, payload) => api.put(`/asignacion/${id}`, payload)
+
 const apis = {
     insertMovie,
     getAllMovies,
@@ -37,6 +45,16 @@ const apis = {
 
     getAllUsers,
     getUserById,
+
+    insertAsignacion,
+    getAllAsignaciones,
+    deleteAsignacionById,
+    getAsignacionById,
+    getAsignacionesProfessionalById,
+    getAllAsignacionesNotAccepted,
+    acceptAsignacionById,
+
+
 }
 
 export default apis

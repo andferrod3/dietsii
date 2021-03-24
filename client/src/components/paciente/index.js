@@ -1,7 +1,5 @@
-import CitasList from './PacientesList'
-import CitasInsertOld from './CitasInsertOld'
-import CitasUpdate from './CitasUpdate'
-import CitasInsert from './CitasInsert'
-import CitasHome from './CitasHome'
+import PacientesList from './PacientesList'
+import PacientesHome from './PacientesHome'
+import PacientesAcceptedList from './PacientesAcceptedList'
 
-export { CitasList, CitasInsert, CitasUpdate, CitasHome }
+export { PacientesHome, PacientesList, PacientesAcceptedList }

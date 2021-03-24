@@ -86,7 +86,7 @@ class CitasList extends Component {
    
 
     render() {
-        const { citas, isLoading } = this.state
+        const { citas } = this.state
         let { dateState } =this.props
         console.log('TCL: CitasList -> render -> citas', citas)
 
@@ -143,18 +143,14 @@ class CitasList extends Component {
             },
         ]
 
-        let showTable = true
-        if (!citas.length) {
-            showTable = false
-        }
-
+      
         
         
 
         return (
             <div>
             <Wrapper>
-                {showTable && (
+              
                     
         
               
@@ -164,7 +160,6 @@ class CitasList extends Component {
                     <ReactTable
                         data={citas}
                         columns={columns}
-                        loading={isLoading}
                         defaultPageSize={5}
                         showPageSizeOptions={true}
                         minRows={5}
@@ -178,7 +173,7 @@ class CitasList extends Component {
                         }
                     />
                     </div>
-                )}
+                
             </Wrapper></div>
         )
     }

@@ -19,6 +19,7 @@ try{
     const newCita = { sessionName, dateTime, professional, pacient };
     await api.insertCita(newCita).then(res => {
         window.alert(`Cita añadida correctamente`)
+        window.location.reload()
         this.setState({
             sessionName: '',
             dateTime: '',

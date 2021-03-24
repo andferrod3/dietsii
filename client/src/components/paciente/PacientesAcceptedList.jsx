@@ -33,7 +33,7 @@ class AcceptPacient extends Component{
     }
 }
 
-class PacientesList extends Component {
+class PacientesAcceptedList extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -51,7 +51,7 @@ class PacientesList extends Component {
         let { userData } =this.props
 
 
-        await api.getAllAsignacionesNotAccepted().then(asignaciones => {
+        await api.getAsignacionesProfessionalById(userData.user.id).then(asignaciones => {
 
             this.setState({
                 asignaciones: asignaciones.data.data,
@@ -100,28 +100,7 @@ class PacientesList extends Component {
                 filterable: true,
                 
             },
-            {
-                Header: '',
-                accessor: '',
-                Cell: function(props) {
-                    
-                    const payload = { professional: userData.user.id }
-                   const acceptPacient = event => {
-                        event.preventDefault()
-                
-                        if(window.confirm(`
-                            ¿Quieres aceptar al paciente?`)){
-                                api.acceptAsignacionById(props.original._id, payload)
-                                window.location.reload()
-                            }
-                    }
-                    return (
-                        <span>
-                            <button class="btn btn-primary aux" onClick={acceptPacient} >Aceptar</button>
-                        </span>
-                    )
-                },
-            },
+            
             
             
         ]
@@ -154,4 +133,4 @@ class PacientesList extends Component {
     }
 }
 
-export default PacientesList
+export default PacientesAcceptedList

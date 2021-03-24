@@ -70,7 +70,7 @@
     visibility: hidden !important;
   }
   .rt-noData::after {
-    content:'No hay citas con esos datos'; 
+    content:'No se obtuvieron resultados'; 
     visibility: visible;
     display: block;
     position: absolute;
