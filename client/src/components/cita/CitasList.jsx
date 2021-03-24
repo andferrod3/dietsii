@@ -165,9 +165,9 @@ class CitasList extends Component {
                         data={citas}
                         columns={columns}
                         loading={isLoading}
-                        defaultPageSize={10}
+                        defaultPageSize={5}
                         showPageSizeOptions={true}
-                        minRows={0}
+                        minRows={5}
                         defaultFiltered={[
                             {
                             id: 'dateTime',

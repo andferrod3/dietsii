@@ -45,9 +45,9 @@ return (
 <input class="introduction" type="text" id="sessionName" onChange={e => setSessionName(e.target.value)}/>
 <label class="field">Fecha y Hora: </label>
 <input class="introduction" type="datetime-local" id="dateTime" onChange={e => setDateTime(e.target.value)}/>
-<input class="introduction" id="professional" value={e => setProfessional(userData.user.id)} type="hidden" />
+<input class="introduction" id="professional" ref={e => setProfessional(userData.user.id)} value={userData.user.id} hidden="true" />
 <label class="field">Paciente: </label>
-<input class="introduction" type="text" id="pacient" onChange={e => setPacient(e.target.value)}/>
+<input class="introduction" type="text" id="pacient" onChange={e => setPacient(e.target.value)}  />
 <input type="submit" value="Crear cita" className="btn btn-primary aux" />
 </form>
 </div>
