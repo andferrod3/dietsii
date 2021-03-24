@@ -66,4 +66,52 @@
 
   }
 
-  
+  .rt-noData {
+    visibility: hidden !important;
+  }
+  .rt-noData::after {
+    content:'No hay citas con esos datos'; 
+    visibility: visible;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    background: rgba(235, 235, 235, 0.8);
+    transition: all .3s ease;
+    z-index: 1;
+    pointer-events: none;
+    padding: 10px;
+    color: rgba(0,0,0,0.5);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 1rem;
+  }
+
+ .-previous .-btn {
+    visibility: hidden !important;
+  }
+  .-previous .-btn:after {
+    content:'Anterior'; 
+    visibility: visible;
+
+  }
+
+  .-next .-btn {
+    visibility: hidden !important;
+  }
+  .-next .-btn:after {
+    content:'Siguiente'; 
+    visibility: visible;
+
+  }
+
+ 
+  .-pageInfo text {
+    visibility: hidden !important;
+  }
+  .-pageInfo text {
+    content:'Página'; 
+    visibility: visible;
+
+  }

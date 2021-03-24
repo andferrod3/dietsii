@@ -44,7 +44,7 @@ return (
 <CitasList dateState = {dateState} userData = {userData} />
 </div>
 
-<CitasInsert />
+<CitasInsert userData = {userData}/>
 </div>
 </div>
 
