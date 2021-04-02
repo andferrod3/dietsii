@@ -6,58 +6,59 @@ import UserContext from '../../context/userContext';
 import styled from 'styled-components'
 import moment from 'moment'
 
+import checked from '../images/checked.png'
+import erase from '../images/erase.png'
+import info from '../images/info.png'
+
 import "react-table-6/react-table.css"
 
 const Wrapper = styled.div`
     padding: 0 40px 40px 40px;
 `
 
-const Update = styled.div`
+const Accept = styled.div`
+    color: #ef9b0f;
+    cursor: pointer;
+`
+const Info = styled.div`
     color: #ef9b0f;
     cursor: pointer;
 `
 
-const Delete = styled.div`
-    color: #ff0000;
-    cursor: pointer;
-`
-
-class UpdateCita extends Component {
-    updateCita = event => {
+class InfoPacient extends Component {
+    infoPacient = event => {
         event.preventDefault()
-
-        window.location.href = `/citas/update/${this.props.id}`
+        api.getAsignacionById(this.props.id).then((result) => {
+            window.location.href = `/pacientes/info/${result.data.data.pacient}`}
+        );
+       
     }
 
     render() {
-        return <Update onClick={this.updateCita}>Modificar</Update>
+        return  <button class="buttonlist" onClick={this.infoPacient} ><img src={info} ></img></button>
     }
 }
 
-class DeleteCita extends Component {
-    deleteCita = event => {
+class AcceptPacient extends Component{
+    acceptPacient = event => {
         event.preventDefault()
 
-        if (
-            window.confirm(
-                `¿Quieres eliminar la cita con id ${this.props.id} permanentemente?`,
-            )
-        ) {
-            api.deleteCitaById(this.props.id)
-            window.location.reload()
-        }
+        if(window.confirm(`
+            ¿Quieres aceptar al paciente?`)){
+                api.acceptAsignacionById(this.props.id)
+                window.location.reload()
+            }
     }
-
-    render() {
-        return <Delete onClick={this.deleteCita}>Eliminar</Delete>
+    render(){
+        return <Accept onClik={this.acceptPacient}>Aceptar</Accept>
     }
 }
 
-class CitasList extends Component {
+class PacientesList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            citas: [],
+            asignaciones: [],
             columns: [],
             isLoading: false,
       
@@ -71,10 +72,10 @@ class CitasList extends Component {
         let { userData } =this.props
 
 
-        await api.getCitasProfessionalById(userData.user.id).then(citas => {
+        await api.getAllAsignacionesNotAccepted().then(asignaciones => {
 
             this.setState({
-                citas: citas.data.data,
+                asignaciones: asignaciones.data.data,
                 isLoading: false,
                
                 
@@ -86,75 +87,89 @@ class CitasList extends Component {
    
 
     render() {
-        const { citas, isLoading } = this.state
-        let { dateState } =this.props
-        console.log('TCL: CitasList -> render -> citas', citas)
+        const { asignaciones, isLoading } = this.state
+        //let { dateState } =this.props
+        let { userData } =this.props
+        console.log('TCL: PacientesList -> render -> asignaciones', asignaciones)
 
         
 
 
         const columns = [
-            
             {
-                Header: 'Nombre de la sesión',
-                accessor: 'sessionName',
-                filterable: true,
-            },
-            {
-                Header: 'Fecha y hora',
-                accessor: 'dateTime',
-                filterable: true,
-                Cell: props => <div> {moment(props.value).format('DD/MM/yyyy HH:mm')} </div>,
-                id:'dateTime',
-          
-            },
-            {
-                Header: 'Nombre paciente',
+                Header: 'Nombre',
                 accessor: 'pacient.name',
                 filterable: true,
             },
             {
-                Header: 'Apellidos paciente',
+                Header: 'Apellidos',
                 accessor: 'pacient.surname',
                 filterable: true,
                 
             },
+            
+           
             {
-                Header: '',
+                Header: 'Fecha',
+                accessor: 'dateTime',
+                filterable: true,
+                Cell: props => <div> {moment(props.value).format('DD/MM/yyyy')} </div>,
+                id:'dateTime',
+          
+            },
+
+            {
+                Header: 'Descripción',
+                accessor: 'description',
+                filterable: true,
+            },
+            
+            {
+                Header: 'Aceptar',
                 accessor: '',
                 Cell: function(props) {
+                    
+                    const payload = { professional: userData.user.id }
+                   const acceptPacient = event => {
+                        event.preventDefault()
+                
+                        if(window.confirm(`
+                            ¿Quieres aceptar al paciente?`)){
+                                api.acceptAsignacionById(props.original._id, payload)
+                                window.location.reload()
+                            }
+                    }
                     return (
                         <span>
-                            <DeleteCita id={props.original._id} />
+                            <button class="buttonlist" onClick={acceptPacient} ><img src={checked} ></img></button>
                         </span>
                     )
                 },
             },
+
             {
-                Header: '',
+                Header: 'Ver',
                 accessor: '',
                 Cell: function(props) {
+                    
+                   
                     return (
                         <span>
-                            <UpdateCita id={props.original._id} />
+                            <InfoPacient id={props.original._id} />
                         </span>
                     )
                 },
             },
+            
+            
         ]
 
-        let showTable = true
-        if (!citas.length) {
-            showTable = false
-        }
 
-        
-        
 
         return (
             <div>
             <Wrapper>
-                {showTable && (
+                
                     
         
               
@@ -162,26 +177,19 @@ class CitasList extends Component {
                   
 
                     <ReactTable
-                        data={citas}
+                        data={asignaciones}
                         columns={columns}
-                        loading={isLoading}
+                   
                         defaultPageSize={10}
                         showPageSizeOptions={true}
-                        minRows={0}
-                        defaultFiltered={[
-                            {
-                            id: 'dateTime',
-                            value:moment(dateState).format('yyyy-MM-DD'),
-                            }
-
-                        ]
-                        }
+                        minRows={10}
+                        
                     />
                     </div>
-                )}
+              
             </Wrapper></div>
         )
     }
 }
 
-export default CitasList
+export default PacientesList

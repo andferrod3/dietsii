@@ -18,7 +18,7 @@ const movieRouter = require('./routes/movie-router');
 const citaRouter = require('./routes/cita-router');
 const userRouter = require('./routes/user-router');
 const asignacionRouter = require('./routes/asignacion-router');
-
+const fichaRouter = require('./routes/ficha-router');
 
 const app = express();
 
@@ -80,7 +80,7 @@ app.use('/api', movieRouter);
 app.use('/api', citaRouter);
 app.use('/api', userRouter);
 app.use('/api', asignacionRouter);
-
+app.use('/api', fichaRouter);
 
 app.use("/users", require("./routes/users"));
 

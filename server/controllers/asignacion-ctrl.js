@@ -34,6 +34,44 @@ createAsignacion = (req, res) => {
         })
 }
 
+aceptarAsignacion = async (req, res) => {
+
+    const body = req.body
+
+    if (!body) {
+        return res.status(400).json({
+            success: false,
+            error: 'Debes proporcionar un cuerpo para actualizar',
+        })
+    }
+
+    Asignacion.findOne({ _id: req.params.id }, (err, asignacion) => {
+        if (err) {
+            return res.status(404).json({
+                err,
+                message: 'Asignación no encontrada',
+            })
+        }
+        asignacion.isAccepted = true
+        asignacion.professional = body.professional
+        asignacion
+            .save()
+            .then(() => {
+                return res.status(200).json({
+                    success: true,
+                    id: asignacion._id,
+                    message: 'Asignación actualizada',
+                })
+            })
+            .catch(error => {
+                return res.status(404).json({
+                    error,
+                    message: 'Asignación no actualizada',
+                })
+            })
+    })
+}
+
 
 deleteAsignacion = async (req, res) => {
     await Asignacion.findOneAndDelete({ _id: req.params.id }, (err, asignacion) => {
@@ -100,10 +138,29 @@ getAsignacionesToProfessional = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+getAsignacionesNotAcceptedNutricionist = async (req, res) => {
+    await Asignacion.find({ isAccepted:'false', type:'Nutricionista' }, (err, asignaciones) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        if (!asignaciones.length) {
+            return res
+                .status(404)
+                .json({ success: false, error: `Asignación no encontrada` })
+        }
+        User.populate(asignaciones, {path: "pacient"},function(err, asignaciones){
+            return res.status(200).json({ success: true, data: asignaciones })
+                    }); 
+
+    }).catch(err => console.log(err))
+}
+
 module.exports = {
     createAsignacion,
     deleteAsignacion,
+    aceptarAsignacion,
     getAsignaciones,
     getAsignacionById,
     getAsignacionesToProfessional,
+    getAsignacionesNotAcceptedNutricionist,
 }

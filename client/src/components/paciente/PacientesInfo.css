@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+      
+  
+
+.cardinfo{
+
+  background: rgba(255,255,255,.3);
+  position : relative;
+  z-index:3;
+  width: 300px;
+  height: 465px;
+  border-radius: 30px;
+  padding: 30px;
+  backdrop-filter: blur(15px);
+  box-shadow: 10px 10px 70px rgba(0, 0, 0, 0.2);
+  border: none;
+  padding :15px 40px;
+  margin-top: 5%;
+    margin-left: 2%;
+
+  
+  }
+
+  .p-profile{
+
+        display: flex;
+        justify-content: center;
+        top:-95px;
+        position: relative;
+         
+        
+  }
+
+  .p-profile img{
+    
+        width:120px;
+        height:120px;
+        object-fit: cover;
+        border-radius : 50%;
+        border: none;
+        box-shadow: 10px 10px 30px rgba(0,0,0,.4);
+  }
+
+  
+  
+  .nameinfo{
+    top: -30px !important;
+    position : relative;
+  }
+  .nameinfo h2,p{
+    text-align : center ;
+    }
+    .nameinfo h2{
+      color:#102900;
+      }
+    .nameinfo p{
+      margin:5px 0px ;
+      }
+
+    .iconitos{
+        width:10%;
+        height:10%;
+    }
+
+    .infos p {
+        display:inline;
+        padding-left: 10%;
+    }
+
+    .infoline{
+        padding-bottom: 10%;
+    }
+
+
+    
+.fichalist{
+  padding-top: 5%;
+    width: 40%;
+}
+
+.fichainsert{
+  width: 38%;
+  padding-top: 4%;
+}
+
+.introductionfi{
+
+margin-right: 5% !important;
+margin-left: 5% !important;
+}
+
+.pairs{
+  float:left;
+  padding-left: 7%;
+}
+
+.cardficha{
+
+  background: rgba(255,255,255,.3);
+  position : relative;
+  z-index:3;
+  width: 95%;
+  height: 465px;
+  border-radius: 30px;
+  padding: 30px;
+  backdrop-filter: blur(15px);
+  box-shadow: 10px 10px 70px rgba(0, 0, 0, 0.2);
+  border: none;
+  padding :15px 40px;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+
+  
+  }
+
+  .nameinfo img{
+    width:2%;
+    height:2%;
+    float:center;
+    margin-left: 0%;  
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+
+  }
+
+  .iconitosficha{
+    width:15%;
+    height:15%;
+    margin-left: auto;
+    margin-right: auto;
+    float:inline-start;
+
+}
+
+.infosficha p {
+  display:inline;
+  padding-left: 2%;
+  font-size: 120%;
+
+}
+
+.infolineficha{
+  float:left;
+  width: 25%;
+  padding-bottom: 3%;
+
+}
