@@ -3,7 +3,11 @@ import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../../context/userContext';
 import ErrorNotice from "../misc/ErrorNotice";
 import api from '../api'
-import styled from 'styled-components'
+import Async from 'react-async';
+import Select from 'react-select';
+
+
+
 
 function CitasInsert () {
 const [sessionName, setSessionName] = useState();
@@ -13,6 +17,14 @@ const [pacient, setPacient] = useState();
 const [error, setError] = useState();
 const {userData} = useContext(UserContext);
 const history = useHistory();
+
+const onChange = async (selectedOption) => {
+
+    console.log(`Option selected:`, selectedOption);
+    setPacient(selectedOption.val);
+    
+  };
+
 const submit = async (e) => {
     e.preventDefault();
 try{
@@ -27,6 +39,7 @@ try{
             pacient: '',
         })
     })
+    
 
     
 
@@ -34,11 +47,20 @@ try{
     
     }
     };
+
+const sacaPacientes = () =>
+    api.getAsignacionesProfessionalById(userData.user.id)
+    .then(res => {return res})
+
+  
+
+
 return (
 <div className="create">
     <div class="cardcita">
         <div class="cardcita-title">
 <h2>Crear cita</h2>
+
 </div>
 {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
 <form onSubmit={submit}>
@@ -47,8 +69,43 @@ return (
 <label class="field">Fecha y Hora: </label>
 <input class="introduction" type="datetime-local" id="dateTime" onChange={e => setDateTime(e.target.value)}/>
 <input class="introduction" id="professional" ref={e => setProfessional(userData.user.id)} value={userData.user.id} hidden="true" />
+
+
+
+
+
+
+
 <label class="field">Paciente: </label>
-<input class="introduction" type="text" id="pacient" onChange={e => setPacient(e.target.value)}  />
+
+
+
+<Async promiseFn={sacaPacientes}>
+
+{({ data, err}) => {
+ 
+          if (err) return `Something went wrong: ${err.message}`
+
+          if (data){
+
+            const selectpacient = [];
+
+            data.data.data.map((paciente) => { selectpacient.push({ desc:paciente.pacient.name+" "+paciente.pacient.surname, val: paciente.pacient._id  })});
+            
+             
+            return (
+
+                <Select options={selectpacient} getOptionLabel={(option)=>option.desc}
+                getOptionValue={(option)=>option.val } id="pacient"  onChange={onChange} ></Select>
+        
+                
+            )}
+        }}
+</Async>
+
+
+
+
 <input type="submit" value="Crear cita" className="btn btn-primary aux" />
 </form>
 </div>

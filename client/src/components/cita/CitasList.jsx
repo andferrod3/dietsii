@@ -7,6 +7,8 @@ import styled from 'styled-components'
 import moment from 'moment'
 
 import "react-table-6/react-table.css"
+import erase from '../images/erase.png'
+import edit from '../images/edit.png'
 
 const Wrapper = styled.div`
     padding: 0 40px 40px 40px;
@@ -30,7 +32,7 @@ class UpdateCita extends Component {
     }
 
     render() {
-        return <Update onClick={this.updateCita}>Modificar</Update>
+        return <button class="buttonlist" onClick={this.updateCita} ><img src={edit} ></img></button>
     }
 }
 
@@ -49,7 +51,7 @@ class DeleteCita extends Component {
     }
 
     render() {
-        return <Delete onClick={this.deleteCita}>Eliminar</Delete>
+        return <button class="buttonlist" onClick={this.deleteCita} ><img src={erase} ></img></button>
     }
 }
 

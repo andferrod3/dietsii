@@ -13,6 +13,7 @@ import PacientesAcceptedList from './PacientesAcceptedList';
 
 
 
+
 function PacientesHome () {
 const {userData} = useContext(UserContext);
 const history = useHistory();
@@ -25,17 +26,29 @@ const changeDate = (e) => {
 
 return (
 
-<div className="Pacientes">
+
+<div className="pacientes">
     
-<h2 clas="titlepage">Apartado de Pacientes</h2>
-<PacientesList userData = {userData}/>
-<PacientesAcceptedList userData = {userData}/>
+<h2 class="titlepage">Apartado de Pacientes</h2>
 
 <div class= "row">
-    
+<div class="list-pacientes-not">
+<h3 class="subtitle">Pacientes sin asignar</h3>
+<PacientesList userData = {userData}/>
+</div>
+<div class="list-pacientes">
+<h3 class="subtitle">Mis pacientes</h3>
+<PacientesAcceptedList userData = {userData}/>
+</div>
+</div>
 
 </div>
-</div>
+
+
+
+
+
+
 
 
 );

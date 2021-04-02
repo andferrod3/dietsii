@@ -9,7 +9,7 @@ import Chat from './components/Chat/Chat';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { MoviesList, MoviesInsert, MoviesUpdate } from './pages';
 import { CitasList, CitasInsert, CitasUpdate, CitasHome } from './components/cita';
-import { PacientesList, PacientesHome } from './components/paciente';
+import { PacientesList, PacientesHome, PacientesInfo, FichasUpdate, FichasInfo } from './components/paciente';
 import  {useState, useEffect } from 'react';
 import { BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
@@ -68,7 +68,9 @@ function App() {
                         <Route path="/citas/update/:id" exact component={CitasUpdate} />
 
                         <Route path="/pacientes" exact component={PacientesHome} />
-
+                        <Route path="/pacientes/info/:id" exact component={PacientesInfo} />
+                        <Route path="/fichas/info/:id" exact component={FichasInfo} />
+                        <Route path="/fichas/update/:id" exact component={FichasUpdate} />
                         <Route path="/register" component={NoPermision} />
                         <Route path="/login" component={NoPermision} />
                     </Switch>
@@ -93,6 +95,9 @@ function App() {
                         <Route path="/citas/create" exact component={NoPermision} />
                         <Route path="/citas/update/:id" exact component={NoPermision} />
                         <Route path="/citas" exact component={NoPermision} />
+
+                        <Route path="/pacientes" exact component={NoPermision} />
+                        <Route path="/pacientes/info/:id" exact component={NoPermision} />
 
                     </Switch>
                     </UserContext.Provider>

@@ -8,6 +8,10 @@ import moment from 'moment'
 
 import "react-table-6/react-table.css"
 
+import checked from '../images/checked.png'
+import erase from '../images/erase.png'
+import info from '../images/info.png'
+
 const Wrapper = styled.div`
     padding: 0 40px 40px 40px;
 `
@@ -17,6 +21,28 @@ const Accept = styled.div`
     cursor: pointer;
 `
 
+const Info = styled.div`
+    color: white;
+    cursor: pointer;
+    background-color: black;
+    text-align: center;
+    border-radius:1 rem;
+
+`
+
+class InfoPacient extends Component {
+    infoPacient = event => {
+        event.preventDefault()
+        api.getAsignacionById(this.props.id).then((result) => {
+            window.location.href = `/pacientes/info/${result.data.data.pacient}`}
+        );
+       
+    }
+
+    render() {
+        return <button class="buttonlist" onClick={this.infoPacient} ><img src={info} ></img></button>
+    }
+}
 
 class AcceptPacient extends Component{
     acceptPacient = event => {
@@ -29,7 +55,7 @@ class AcceptPacient extends Component{
             }
     }
     render(){
-        return <Accept onClik={this.acceptPacient}>Aceptar</Accept>
+        return <input type="image" src={checked} onClik={this.acceptPacient}/> 
     }
 }
 
@@ -76,29 +102,53 @@ class PacientesAcceptedList extends Component {
 
         const columns = [
             
+            
             {
-                Header: 'Tipo',
-                accessor: 'type',
-                filterable: true,
-            },
-            {
-                Header: 'Fecha',
-                accessor: 'dateTime',
-                filterable: true,
-                Cell: props => <div> {moment(props.value).format('DD/MM/yyyy HH:mm')} </div>,
-                id:'dateTime',
-          
-            },
-            {
-                Header: 'Nombre paciente',
+                Header: 'Nombre',
                 accessor: 'pacient.name',
                 filterable: true,
             },
             {
-                Header: 'Apellidos paciente',
+                Header: 'Apellidos',
                 accessor: 'pacient.surname',
                 filterable: true,
                 
+            },
+
+            {
+                Header: 'Eliminar',
+                accessor: '',
+                Cell: function(props) {
+                    
+                    const payload = { professional: userData.user.id }
+                   const deleteAsignacion = event => {
+                        event.preventDefault()
+                
+                        if(window.confirm(`
+                            ¿Quieres eliminar la asignación del paciente?`)){
+                                api.deleteAsignacionById(props.original._id)
+                                window.location.reload()
+                            }
+                    }
+                    return (
+                        <span>
+                             <button class="buttonlist" onClick={deleteAsignacion} ><img src={erase} ></img></button>
+                        </span>
+                    )
+                },
+            },
+            {
+                Header: 'Ver',
+                accessor: '',
+                Cell: function(props) {
+                    
+                   
+                    return (
+                        <span>
+                            <InfoPacient id={props.original._id} />
+                        </span>
+                    )
+                },
             },
             
             

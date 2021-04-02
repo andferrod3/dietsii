@@ -6,6 +6,10 @@ import UserContext from '../../context/userContext';
 import styled from 'styled-components'
 import moment from 'moment'
 
+import checked from '../images/checked.png'
+import erase from '../images/erase.png'
+import info from '../images/info.png'
+
 import "react-table-6/react-table.css"
 
 const Wrapper = styled.div`
@@ -16,7 +20,24 @@ const Accept = styled.div`
     color: #ef9b0f;
     cursor: pointer;
 `
+const Info = styled.div`
+    color: #ef9b0f;
+    cursor: pointer;
+`
 
+class InfoPacient extends Component {
+    infoPacient = event => {
+        event.preventDefault()
+        api.getAsignacionById(this.props.id).then((result) => {
+            window.location.href = `/pacientes/info/${result.data.data.pacient}`}
+        );
+       
+    }
+
+    render() {
+        return  <button class="buttonlist" onClick={this.infoPacient} ><img src={info} ></img></button>
+    }
+}
 
 class AcceptPacient extends Component{
     acceptPacient = event => {
@@ -75,33 +96,36 @@ class PacientesList extends Component {
 
 
         const columns = [
-            
             {
-                Header: 'Tipo',
-                accessor: 'type',
-                filterable: true,
-            },
-            {
-                Header: 'Fecha',
-                accessor: 'dateTime',
-                filterable: true,
-                Cell: props => <div> {moment(props.value).format('DD/MM/yyyy HH:mm')} </div>,
-                id:'dateTime',
-          
-            },
-            {
-                Header: 'Nombre paciente',
+                Header: 'Nombre',
                 accessor: 'pacient.name',
                 filterable: true,
             },
             {
-                Header: 'Apellidos paciente',
+                Header: 'Apellidos',
                 accessor: 'pacient.surname',
                 filterable: true,
                 
             },
+            
+           
             {
-                Header: '',
+                Header: 'Fecha',
+                accessor: 'dateTime',
+                filterable: true,
+                Cell: props => <div> {moment(props.value).format('DD/MM/yyyy')} </div>,
+                id:'dateTime',
+          
+            },
+
+            {
+                Header: 'Descripción',
+                accessor: 'description',
+                filterable: true,
+            },
+            
+            {
+                Header: 'Aceptar',
                 accessor: '',
                 Cell: function(props) {
                     
@@ -117,7 +141,21 @@ class PacientesList extends Component {
                     }
                     return (
                         <span>
-                            <button class="btn btn-primary aux" onClick={acceptPacient} >Aceptar</button>
+                            <button class="buttonlist" onClick={acceptPacient} ><img src={checked} ></img></button>
+                        </span>
+                    )
+                },
+            },
+
+            {
+                Header: 'Ver',
+                accessor: '',
+                Cell: function(props) {
+                    
+                   
+                    return (
+                        <span>
+                            <InfoPacient id={props.original._id} />
                         </span>
                     )
                 },

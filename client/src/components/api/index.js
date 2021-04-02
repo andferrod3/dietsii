@@ -29,6 +29,13 @@ export const getAsignacionById = id => api.get(`/asignacion/${id}`)
 export const getAsignacionesProfessionalById = professional => api.get(`/asignaciones/${professional}`)
 export const acceptAsignacionById = (id, payload) => api.put(`/asignacion/${id}`, payload)
 
+export const insertFicha= payload => api.post(`/ficha`, payload)
+export const getAllFichas = () => api.get(`/fichas`)
+export const updateFichaById = (id, payload) => api.put(`/ficha/${id}`, payload)
+export const deleteFichaById = id => api.delete(`/ficha/${id}`)
+export const getFichaById = id => api.get(`/ficha/${id}`)
+export const getFichasPacientById = pacient => api.get(`/fichas/${pacient}`)
+
 const apis = {
     insertMovie,
     getAllMovies,
@@ -53,6 +60,13 @@ const apis = {
     getAsignacionesProfessionalById,
     getAllAsignacionesNotAccepted,
     acceptAsignacionById,
+
+    insertFicha,
+    getAllFichas,
+    updateFichaById,
+    deleteFichaById,
+    getFichaById,
+    getFichasPacientById,
 
 
 }
