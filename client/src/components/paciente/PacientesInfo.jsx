@@ -8,7 +8,8 @@ import { useParams } from "react-router";
 import Async from 'react-async';
 import FichasInsert from './FichasInsert';
 import FichasList from './FichasList';
-
+import RegistronsInsert from './RegistronsInsert'
+import RegistronsList from './RegistronsList'
 
 import './PacientesInfo.css'
 
@@ -19,6 +20,7 @@ import home from '../images/home.png'
 import phone from '../images/phone-call.png'
 import user from '../images/user.png'
 
+
 import moment from 'moment'
 
 
@@ -26,20 +28,14 @@ function PacientesInfo () {
 const  {id} = useParams()
 const {userData} = useContext(UserContext);
 const history = useHistory();
+const url = "/pacientes/info/" + id + "/registrons"
+const homeRegistrons = () => history.push(url);
 
 const sacaPaciente = () =>
     api.getUserById(id)
     .then(res => {return res})
   
 
-    /*
-async function sacaPaciente(id) {
-
-  const pacient = await api.getUserById(id)
-  return pacient
-
-}
-const aux = sacaPaciente(id);*/
 return (
 
 
@@ -88,6 +84,9 @@ return (
     <img class="iconitos" src={user} />
       <p>{data.data.data.role}</p>
     </div>
+    <div class="infoline">
+      <button className="btn btn-primary mr-2" onClick={homeRegistrons}>Registros nutricionales</button>
+    </div>
   </div>
   
 
@@ -103,6 +102,7 @@ return (
 <FichasInsert userId={id}></FichasInsert>
 </div>
 </div>
+
 </div>
 
     

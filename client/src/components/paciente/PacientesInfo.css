@@ -159,3 +159,176 @@ margin-left: 5% !important;
   padding-bottom: 3%;
 
 }
+
+.days{
+
+  padding-top: 1%;
+  display: inline-flex;
+  border-radius: 1rem;
+  border: 1px solid rgb(186, 186, 186);
+  margin: 1%;
+  padding-right: 1%;
+
+  float:right;
+}
+
+.days label{
+  padding-left: 2%;
+  padding-right: 1%;
+}
+
+.day{
+  float:left;
+}
+
+.days p {
+  padding-left: 1%;
+}
+
+.registron {
+  margin-left: 1% !important;
+  margin-right: 1% !important;
+  
+}
+
+#price {
+  text-align: center;
+}
+
+.plan {
+  display: inline-block;
+  margin: 10px 1%;
+  font-family: 'Lato', Arial, sans-serif;
+  border-radius: 1rem;
+}
+
+.plan-inner {
+  background: rgb(255, 255, 255);
+  margin: 0 auto;
+  min-width: 280px;
+  max-width: 100%;
+  position:relative;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.entry-title {
+  background: #9fd3af;
+  height: 140px;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+  border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.entry-title>h3 {
+  background: #67a08c;
+  font-size: 20px;
+  padding: 5px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0;
+  border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.entry-title .price {
+  position: absolute;
+  bottom: -25px;
+  background: #67a08c;
+  height: 95px;
+  width: 95px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  border-radius: 50px;
+  border: 5px solid #fff;
+  line-height: 80px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.price span {
+  position: absolute;
+  font-size: 9px;
+  bottom: -10px;
+  left: 30px;
+  font-weight: 400;
+}
+
+.entry-content {
+  color: #323232;
+}
+
+.entry-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.entry-content li {
+  border-bottom: 1px solid #E5E5E5;
+  padding: 10px 0;
+}
+
+.entry-content li:last-child {
+  border: none;
+}
+
+
+.hot {
+    position: absolute;
+    top: -7px;
+    background: #F80;
+    color: #fff;
+    text-transform: uppercase;
+    z-index: 2;
+    padding: 2px 5px;
+    font-size: 9px;
+    border-radius: 2px;
+    right: 10px;
+    font-weight: 700;
+}
+.basic .entry-title {
+  background: #75DDD9;
+}
+
+.basic .entry-title > h3 {
+  background: #44CBC6;
+}
+
+.basic .price {
+  background: #44CBC6;
+}
+
+.standard .entry-title {
+  background: #4484c1;
+}
+
+.standard .entry-title > h3 {
+  background: #3772aa;
+}
+
+.standard .price {
+  background: #3772aa;
+}
+
+.ultimite .entry-title > h3 {
+  background: #DD4B5E;
+}
+
+.ultimite .entry-title {
+  background: #F75C70;
+}
+
+.ultimite .price {
+  background: #DD4B5E;
+}
+
+.cardficha{
+  height: auto;
+}
