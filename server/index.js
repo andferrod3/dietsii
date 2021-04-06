@@ -19,6 +19,7 @@ const citaRouter = require('./routes/cita-router');
 const userRouter = require('./routes/user-router');
 const asignacionRouter = require('./routes/asignacion-router');
 const fichaRouter = require('./routes/ficha-router');
+const registronRouter = require('./routes/registron-router');
 
 const app = express();
 
@@ -81,6 +82,7 @@ app.use('/api', citaRouter);
 app.use('/api', userRouter);
 app.use('/api', asignacionRouter);
 app.use('/api', fichaRouter);
+app.use('/api', registronRouter);
 
 app.use("/users", require("./routes/users"));
 

@@ -9,7 +9,7 @@ import Chat from './components/Chat/Chat';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { MoviesList, MoviesInsert, MoviesUpdate } from './pages';
 import { CitasList, CitasInsert, CitasUpdate, CitasHome } from './components/cita';
-import { PacientesList, PacientesHome, PacientesInfo, FichasUpdate, FichasInfo } from './components/paciente';
+import { PacientesList, PacientesHome, PacientesInfo, FichasUpdate, FichasInfo, RegistronsHome, RegistronsUpdate, RegistronsInfo } from './components/paciente';
 import  {useState, useEffect } from 'react';
 import { BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
@@ -70,7 +70,10 @@ function App() {
                         <Route path="/pacientes" exact component={PacientesHome} />
                         <Route path="/pacientes/info/:id" exact component={PacientesInfo} />
                         <Route path="/fichas/info/:id" exact component={FichasInfo} />
+                        <Route path="/registrons/info/:id" exact component={RegistronsInfo} />
                         <Route path="/fichas/update/:id" exact component={FichasUpdate} />
+                        <Route path="/registrons/update/:id" exact component={RegistronsUpdate} />
+                        <Route path="/pacientes/info/:id/registrons" exact component={RegistronsHome} />
                         <Route path="/register" component={NoPermision} />
                         <Route path="/login" component={NoPermision} />
                     </Switch>

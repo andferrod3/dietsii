@@ -6,5 +6,10 @@ import FichasInsert from './FichasInsert'
 import FichasList from './FichasList'
 import FichasUpdate from './FichasUpdate'
 import FichasInfo from './FichasInfo'
+import RegistronsInsert from './RegistronsInsert'
+import RegistronsList from './RegistronsList'
+import RegistronsHome from './RegistronsHome'
+import RegistronsUpdate from './RegistronsUpdate'
+import RegistronsInfo from './RegistronsInfo'
 
-export { PacientesHome, PacientesList, PacientesAcceptedList, PacientesInfo, FichasInsert, FichasList, FichasUpdate, FichasInfo }
+export { PacientesHome, PacientesList, PacientesAcceptedList, PacientesInfo, FichasInsert, FichasList, FichasUpdate, FichasInfo, RegistronsInsert, RegistronsList, RegistronsHome, RegistronsUpdate, RegistronsInfo }

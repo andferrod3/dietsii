@@ -115,7 +115,7 @@ getFichaById = async (req, res) => {
 }
 
 getFichas = async (req, res) => {
-    await Cita.find({}, (err, fichas) => {
+    await Ficha.find({}, (err, fichas) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }

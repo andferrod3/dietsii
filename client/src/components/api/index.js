@@ -36,6 +36,13 @@ export const deleteFichaById = id => api.delete(`/ficha/${id}`)
 export const getFichaById = id => api.get(`/ficha/${id}`)
 export const getFichasPacientById = pacient => api.get(`/fichas/${pacient}`)
 
+export const insertRegistron= payload => api.post(`/registron`, payload)
+export const getAllRegistrons = () => api.get(`/registrons`)
+export const updateRegistronById = (id, payload) => api.put(`/registron/${id}`, payload)
+export const deleteRegistronById = id => api.delete(`/registron/${id}`)
+export const getRegistronById = id => api.get(`/registron/${id}`)
+export const getRegistronsPacientById = pacient => api.get(`/registrons/${pacient}`)
+
 const apis = {
     insertMovie,
     getAllMovies,
@@ -68,6 +75,12 @@ const apis = {
     getFichaById,
     getFichasPacientById,
 
+    insertRegistron,
+    getAllRegistrons,
+    updateRegistronById,
+    deleteRegistronById,
+    getRegistronById,
+    getRegistronsPacientById,
 
 }
 
