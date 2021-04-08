@@ -1,6 +1,7 @@
 .form {
     display: flex;
     border-top: 2px solid #D3D3D3;
+ 
   }
   
   .input {
@@ -9,6 +10,9 @@
     padding: 5%;
     width: 80%;
     font-size: 1.2em;
+    border-radius: 0 0 0 1rem;
+    height: 1px;
+
   }
   
   input:focus, textarea:focus, select:focus{
@@ -19,7 +23,8 @@
     color: #fff !important;
     text-transform: uppercase;
     text-decoration: none;
-    background: #2979FF;
+    background: #526057;
+    border-radius: 0 0 1rem 0;
     padding: 20px;
     display: inline-block;
     border: none;

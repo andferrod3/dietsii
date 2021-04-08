@@ -10,6 +10,7 @@ const createMovie = () => history.push("/movies/create");
 const listMovies = () => history.push("/movies/list");
 const homeCita = () => history.push("/citas");
 const homePaciente = () => history.push("/pacientes");
+const sesion = () => history.push("/chat/join")
 const logout = () => {
 setUserData({
 token: undefined,
@@ -39,6 +40,7 @@ return (
 if(userData.user && userData.user.role == "Nutricionista"){
 
     return (<nav className="auth-options">
+                <button className="btn btn-primary mr-2" onClick={sesion}>Sesiones</button>
                 <button className="btn btn-primary mr-2" onClick={homePaciente}>Pacientes</button>
                 <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
                 <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>

@@ -3,7 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Join from './components/Join/Join';
-import Chat from './components/Chat/Chat';
+import Chat from './components/Chat';
+import {SesionHome } from './components/Chat'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -61,7 +62,7 @@ function App() {
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route path="/chat/join" exact component={Join} />
-                        <Route path="/chat" component={Chat} />
+                        <Route path="/chat" component={SesionHome} />
                         <Route path="/citas" exact component={CitasHome} />
                         <Route path="/citas/list" exact component={CitasList} />
                         <Route path="/citas/create" exact component={CitasInsert} />

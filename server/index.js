@@ -46,8 +46,8 @@ io.on('connection', (socket) => {
 
         
 
-        socket.emit('message', { user: 'admin', text: `${user.name}, welcome to the room ${user.room}` });
-        socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name}, has joined!` });
+        socket.emit('message', { user: 'admin', text: `${user.name}, bienvenido a la sesión ${user.room}` });
+        socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name}, se ha unido a la sesión.` });
 
         socket.join(user.room);
 
@@ -65,11 +65,38 @@ io.on('connection', (socket) => {
         callback();
     });
 
+    socket.on('addRegistron', (registron) => {
+    
+            socket.broadcast.emit('addRegistron', registron);
+       
+    });
+
+    socket.on('write2', (evt) => {
+       
+        socket.broadcast.emit('write2', evt);
+       
+   
+    })
+
+    socket.on('write', (evt) => {
+       
+        socket.broadcast.emit('write', evt);
+       
+   
+    })
+
+    socket.on('text', (pack) => {
+        io.sockets.emit('text', pack);
+        lastText = pack.data;
+        var uid = uids.get(socket.id);
+        console.log("New text event by " + socket.id + "(" + uid + ") in room <" + pack.rid + ">:" + toJSON(pack));
+    });
+
     socket.on('disconnect', () => {
         const user = removeUser(socket.id);
 
         if(user){
-            io.to(user.room).emit('message', {user: 'admin', text: `${user.name} has left.`})
+            io.to(user.room).emit('message', {user: 'admin', text: `${user.name} ha abandonado la sesión.`})
         };
 
   
