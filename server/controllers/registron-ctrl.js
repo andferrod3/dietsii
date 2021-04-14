@@ -19,11 +19,53 @@ createRegistron = (req, res) => {
 
     registron
         .save()
-        .then(() => {
+        .then((result) => {
             return res.status(201).json({
                 success: true,
                 id: registron._id,
                 message: 'Registro creado',
+                result: {
+                    _id: result._id,
+                    dateTime:result.dateTime, 
+                    estadoAnimo:result.estadoAnimo, 
+                    professional:result.professional,
+                    pacient:result.pacient,
+                    desayunoL:result.desayunoL,
+                    mediaL:result.mediaL,
+                    almuerzoL:result.almuerzoL,
+                    meriendaL:result.meriendaL,
+                    cenaL:result.cenaL,
+                    desayunoM:result.desayunoM,
+                    mediaM:result.mediaM,
+                    almuerzoM:result.almuerzoM,
+                    meriendaM:result.meriendaM,
+                    cenaM:result.cenaM,
+                    desayunoX:result.desayunoX,
+                    mediaX:result.mediaX,
+                    almuerzoX:result.almuerzoX,
+                    meriendaX:result.meriendaX,
+                    cenaX:result.cenaX,
+                    desayunoJ:result.desayunoJ,
+                    mediaJ:result.mediaJ,
+                    almuerzoJ:result.almuerzoJ,
+                    meriendaJ:result.meriendaJ,
+                    cenaJ:result.cenaJ,
+                    desayunoV:result.desayunoV,
+                    mediaV:result.mediaV,
+                    almuerzoV:result.almuerzoV,
+                    meriendaV:result.meriendaV,
+                    cenaV:result.cenaV,
+                    desayunoS:result.desayunoS,
+                    mediaS:result.mediaS,
+                    almuerzoS:result.almuerzoS,
+                    meriendaS:result.meriendaS,
+                    cenaS:result.cenaS,
+                    desayunoD:result.desayunoD,
+                    mediaD:result.mediaD,
+                    almuerzoD:result.almuerzoD,
+                    meriendaD:result.meriendaD,
+                    cenaD:result.cenaD,
+                }
             })
         })
         .catch(error => {

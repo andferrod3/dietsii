@@ -10,7 +10,8 @@ import {SesionHome } from './components/Chat'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { MoviesList, MoviesInsert, MoviesUpdate } from './pages';
 import { CitasList, CitasInsert, CitasUpdate, CitasHome } from './components/cita';
-import { PacientesList, PacientesHome, PacientesInfo, FichasUpdate, FichasInfo, RegistronsHome, RegistronsUpdate, RegistronsInfo } from './components/paciente';
+import { MenusList, MenusInsert, MenusHome } from './components/menu';
+import { PacientesList, PacientesHome, PacientesInfo, FichasUpdate, FichasInfo, RegistronsHome, RegistronsUpdate, RegistronsInfo, RegistronsInsertSo } from './components/paciente';
 import  {useState, useEffect } from 'react';
 import { BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
@@ -67,6 +68,8 @@ function App() {
                         <Route path="/citas/list" exact component={CitasList} />
                         <Route path="/citas/create" exact component={CitasInsert} />
                         <Route path="/citas/update/:id" exact component={CitasUpdate} />
+
+                        <Route path="/menus" exact component={MenusHome} />
 
                         <Route path="/pacientes" exact component={PacientesHome} />
                         <Route path="/pacientes/info/:id" exact component={PacientesInfo} />
