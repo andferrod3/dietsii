@@ -43,6 +43,13 @@ export const deleteRegistronById = id => api.delete(`/registron/${id}`)
 export const getRegistronById = id => api.get(`/registron/${id}`)
 export const getRegistronsPacientById = pacient => api.get(`/registrons/${pacient}`)
 
+export const insertMenu= payload => api.post(`/menu`, payload)
+export const getAllMenus = () => api.get(`/menus`)
+export const updateMenuById = (id, payload) => api.put(`/menu/${id}`, payload)
+export const deleteMenuById = id => api.delete(`/menu/${id}`)
+export const getMenuById = id => api.get(`/menu/${id}`)
+
+
 const apis = {
     insertMovie,
     getAllMovies,
@@ -81,6 +88,12 @@ const apis = {
     deleteRegistronById,
     getRegistronById,
     getRegistronsPacientById,
+
+    insertMenu,
+    getAllMenus,
+    updateMenuById,
+    deleteMenuById,
+    getMenuById,
 
 }
 

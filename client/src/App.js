@@ -3,13 +3,15 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Join from './components/Join/Join';
-import Chat from './components/Chat/Chat';
+import Chat from './components/Chat';
+import {SesionHome } from './components/Chat'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { MoviesList, MoviesInsert, MoviesUpdate } from './pages';
 import { CitasList, CitasInsert, CitasUpdate, CitasHome } from './components/cita';
-import { PacientesList, PacientesHome, PacientesInfo, FichasUpdate, FichasInfo, RegistronsHome, RegistronsUpdate, RegistronsInfo } from './components/paciente';
+import { MenusList, MenusInsert, MenusHome } from './components/menu';
+import { PacientesList, PacientesHome, PacientesInfo, FichasUpdate, FichasInfo, RegistronsHome, RegistronsUpdate, RegistronsInfo, RegistronsInsertSo } from './components/paciente';
 import  {useState, useEffect } from 'react';
 import { BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
@@ -61,11 +63,13 @@ function App() {
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route path="/chat/join" exact component={Join} />
-                        <Route path="/chat" component={Chat} />
+                        <Route path="/chat" component={SesionHome} />
                         <Route path="/citas" exact component={CitasHome} />
                         <Route path="/citas/list" exact component={CitasList} />
                         <Route path="/citas/create" exact component={CitasInsert} />
                         <Route path="/citas/update/:id" exact component={CitasUpdate} />
+
+                        <Route path="/menus" exact component={MenusHome} />
 
                         <Route path="/pacientes" exact component={PacientesHome} />
                         <Route path="/pacientes/info/:id" exact component={PacientesInfo} />

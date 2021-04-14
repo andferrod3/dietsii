@@ -162,7 +162,7 @@ return (
 
 </div>
 {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
-<div clas="cregistron">
+<div class="cregistron">
 <form onSubmit={submit} class="registron">
 <div class="pairs">
 <label class="field">Fecha: </label>
