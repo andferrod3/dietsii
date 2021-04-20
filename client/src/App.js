@@ -3,14 +3,16 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Join from './components/Join/Join';
+import JoinP from './components/Join/JoinP';
 import Chat from './components/Chat';
-import {SesionHome } from './components/Chat'
+import {SesionHome, SesionPHome } from './components/Chat'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { MoviesList, MoviesInsert, MoviesUpdate } from './pages';
 import { CitasList, CitasInsert, CitasUpdate, CitasHome } from './components/cita';
 import { MenusList, MenusInsert, MenusHome } from './components/menu';
+import { RegistroesHome, RegistroesList, RegistroesInsert, EntrenosHome, RegistroesInfo } from './components/entrenador';
 import { PacientesList, PacientesHome, PacientesInfo, FichasUpdate, FichasInfo, RegistronsHome, RegistronsUpdate, RegistronsInfo, RegistronsInsertSo } from './components/paciente';
 import  {useState, useEffect } from 'react';
 import { BrowserRouter} from 'react-router-dom';
@@ -68,16 +70,20 @@ function App() {
                         <Route path="/citas/list" exact component={CitasList} />
                         <Route path="/citas/create" exact component={CitasInsert} />
                         <Route path="/citas/update/:id" exact component={CitasUpdate} />
-
+                        <Route path="/pchat/join" exact component={JoinP} />
                         <Route path="/menus" exact component={MenusHome} />
+                        <Route path="/entrenos" exact component={EntrenosHome} />
+                        <Route path="/pchat" component={SesionPHome} />
 
                         <Route path="/pacientes" exact component={PacientesHome} />
                         <Route path="/pacientes/info/:id" exact component={PacientesInfo} />
                         <Route path="/fichas/info/:id" exact component={FichasInfo} />
                         <Route path="/registrons/info/:id" exact component={RegistronsInfo} />
+                        <Route path="/registroes/info/:id" exact component={RegistroesInfo} />
                         <Route path="/fichas/update/:id" exact component={FichasUpdate} />
                         <Route path="/registrons/update/:id" exact component={RegistronsUpdate} />
                         <Route path="/pacientes/info/:id/registrons" exact component={RegistronsHome} />
+                        <Route path="/pacientes/info/:id/registroes" exact component={RegistroesHome} />
                         <Route path="/register" component={NoPermision} />
                         <Route path="/login" component={NoPermision} />
                     </Switch>

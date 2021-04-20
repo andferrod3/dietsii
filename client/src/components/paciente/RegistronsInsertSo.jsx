@@ -90,6 +90,9 @@ class RegistronsInsertSo extends Component {
             objetivoHidr: '',
             objetivoProt: '',
             objetivoGras: '',
+            pacientes: [],
+            nutricionistas: [],
+            entrenadores: [],
         }
     }
 
@@ -738,7 +741,7 @@ class RegistronsInsertSo extends Component {
            })
 
            
-           document.getElementById("creationsuccess").innerHTML = "Elemento añadido correitamente";
+           document.getElementById("creationsuccess").innerHTML = "Elemento nutricional añadido correctamente";
          
 
 
@@ -771,6 +774,51 @@ class RegistronsInsertSo extends Component {
                 }, () => console.log(this.state.menus)
             )
         })
+
+        const promise2 = api.getAllPacientes();
+
+        promise2.then(pacientes =>{
+            const selectpacientes = [];
+
+            pacientes.data.data.map((paciente) => { selectpacientes.push( 
+                <option value={paciente._id}>{paciente.name} {paciente.surname}</option>
+            )});
+            this.setState(
+                {
+                    pacientes: selectpacientes
+                }, () => console.log(this.state.pacientes)
+            )
+        })
+
+        const promise3 = api.getAllNutricionistas();
+
+        promise3.then(nutricionistas =>{
+            const selectnutricionistas = [];
+
+            nutricionistas.data.data.map((nutricionista) => { selectnutricionistas.push( 
+                <option value={nutricionista._id}>{nutricionista.name} {nutricionista.surname}</option>
+            )});
+            this.setState(
+                {
+                    nutricionistas: selectnutricionistas
+                }, () => console.log(this.state.nutricionistas)
+            )
+        })
+
+        const promise4 = api.getAllEntrenadores();
+
+        promise4.then(entrenadores =>{
+            const selectentrenadores = [];
+
+            entrenadores.data.data.map((entrenador) => { selectentrenadores.push( 
+                <option value={entrenador._id}>{entrenador.name} {entrenador.surname}</option>
+            )});
+            this.setState(
+                {
+                    entrenadores: selectentrenadores
+                }, () => console.log(this.state.entrenadores)
+            )
+        })
     }
     
     componentDidMount = async () => {
@@ -798,7 +846,7 @@ class RegistronsInsertSo extends Component {
     });
 
     const editor2 = getEl(this.props.idEdit2)
-    editor2.addEventListener("keyup", (evt) => {
+    editor2.addEventListener("change", (evt) => {
     const text = editor2.value
     this.setState({ estadoAnimo: text })
 
@@ -811,7 +859,7 @@ class RegistronsInsertSo extends Component {
 }); 
 
 const editor3 = getEl(this.props.idEdit3)
-    editor3.addEventListener("keyup", (evt) => {
+    editor3.addEventListener("change", (evt) => {
     const text = editor3.value
     this.setState({ pacient: text })
 
@@ -824,7 +872,7 @@ const editor3 = getEl(this.props.idEdit3)
 }); 
 
 const editor4 = getEl(this.props.idEdit4)
-    editor4.addEventListener("keyup", (evt) => {
+    editor4.addEventListener("change", (evt) => {
     const text = editor4.value
     this.setState({ professional: text })
    
@@ -1449,7 +1497,7 @@ socket.on('buttonUpdate7', function(data){
             <div class="cardcita cardcitasesion">
             <Wrapper>
             <div class="cardcita-title cardcitatitlesesion">
-                <h2>Crear el registro </h2>
+                <h2>Crear el registro nutricional </h2>
                 </div>
                 <div class="pairs">
                 <Label>Fecha: </Label>
@@ -1459,33 +1507,26 @@ socket.on('buttonUpdate7', function(data){
                     onChange={this.handleChangeInputDateTime}
                     id={this.props.idEdit}
                 />
-                </div>
-                <div class="pairs">
+                
                 <Label>Estado de ánimo: </Label>
-                <InputText
-                    type="text"
-                    value={estadoAnimo}
-                    onChange={this.handleChangeInputEstadoAnimo}
-                    id={this.props.idEdit2}
-                />
+                <select select class="select-css" id={this.props.idEdit2}  onChange={e => this.setState({estadoAnimo: e.target.value})} >
+                    <option value="Motivado">Motivado</option>
+                    <option value="Desilusionado">Desilusionado</option>
+                    <option value="Cansado">Cansado</option>
+                    <option value="Vigorizado">Vigorizado</option>
+                    <option value="Hambriento">Hambriento</option>
+                </select>
                 </div>
                 <div class="pairs">
                 <Label>Paciente: </Label>
-                <InputText
-                    type="text"
-                    value={pacient}
-                    onChange={this.handleChangeInputPacient}
-                    id={this.props.idEdit3}
-                />
-                </div>
-                <div class="pairs">
+                <select class="select-css" id={this.props.idEdit3}  onChange={e => this.setState({paciente: e.target.value})} >
+                    {this.state.pacientes}
+                </select>
+                
                 <Label>Profesional: </Label>
-                <InputText
-                    type="text"
-                    value={professional}
-                    onChange={this.handleChangeInputProfessional}
-                    id={this.props.idEdit4}
-                />
+                <select class="select-css" id={this.props.idEdit4}  onChange={e => this.setState({professional: e.target.value})} >
+                    {this.state.nutricionistas}
+                </select>
                 </div>
                 <div class="pairs">
                 <Label>Objetivo calórico diario: </Label>
@@ -1528,7 +1569,7 @@ socket.on('buttonUpdate7', function(data){
 <p class="dayl">Lunes</p>
                 <Label>Desayuno: </Label>
 
-                <select id={this.props.idEdit5}  onChange={e => this.setState({desayunoL: e.target.value})} >
+                <select  id={this.props.idEdit5}  onChange={e => this.setState({desayunoL: e.target.value})} >
                     {this.state.menus}
                 </select>
  
@@ -1727,7 +1768,8 @@ socket.on('buttonUpdate7', function(data){
                 </select>
                 </div>
                 <div id="caloriasdomingo"></div>
-                <Button onClick={this.handleComprobarCalorias} id="creario" >Calcular</Button>
+                <Button onClick={this.handleComprobarCalorias} id="calculario" >Calcular</Button>
+                <Button onClick={this.handleIncludeRegistron} id="creario" >Crear</Button>
      
             </Wrapper>
             </div>

@@ -457,11 +457,13 @@ class RegistronsUpdate extends Component {
                 <Title>Modificar el registro</Title>
 
                 <Label>Estado de ánimo: </Label>
-                <InputText
-                    type="text"
-                    value={estadoAnimo}
-                    onChange={this.handleChangeInputEstadoAnimo}
-                />
+                <select value={estadoAnimo}  onChange={e => this.setState({estadoAnimo: e.target.value})} >
+                    <option value="Motivado">Motivado</option>
+                    <option value="Desilusionado">Desilusionado</option>
+                    <option value="Cansado">Cansado</option>
+                    <option value="Vigorizado">Vigorizado</option>
+                    <option value="Hambriento">Hambriento</option>
+                </select>
 
                 <Label>Desayuno lunes: </Label>
                 <InputText

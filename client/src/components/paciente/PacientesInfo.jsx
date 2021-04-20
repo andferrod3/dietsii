@@ -30,6 +30,8 @@ const {userData} = useContext(UserContext);
 const history = useHistory();
 const url = "/pacientes/info/" + id + "/registrons"
 const homeRegistrons = () => history.push(url);
+const url2 = "/pacientes/info/" + id + "/registroes"
+const homeRegistroes = () => history.push(url2);
 
 const sacaPaciente = () =>
     api.getUserById(id)
@@ -86,6 +88,9 @@ return (
     </div>
     <div class="infoline">
       <button className="btn btn-primary mr-2" onClick={homeRegistrons}>Registros nutricionales</button>
+    </div>
+    <div class="infoline">
+      <button className="btn btn-primary mr-2" onClick={homeRegistroes}>Registros deportivos</button>
     </div>
   </div>
   

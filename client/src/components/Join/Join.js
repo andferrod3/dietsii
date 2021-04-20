@@ -4,7 +4,7 @@ import UserContext from '../../context/userContext';
 
 import './Join.css';
 
-const Join = () => {
+const JoinP = () => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const {userData} = useContext(UserContext);
@@ -23,4 +23,4 @@ const Join = () => {
     )
 }
 
-export default Join;
+export default JoinP;

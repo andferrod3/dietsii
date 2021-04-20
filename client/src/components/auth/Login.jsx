@@ -25,7 +25,9 @@ err.response.data.msg && setError(err.response.data.msg)
 }
 };
 return (
+
 <div className="login">
+<div class="background-image"></div>
 <div class="card">
         <div class="card-title">
 <h2>Login</h2>

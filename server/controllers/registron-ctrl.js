@@ -1,4 +1,5 @@
 const { user } = require('../bd')
+const { menu } = require('../bd')
 const Registron = require('../models/registron.model')
 
 createRegistron = (req, res) => {
@@ -178,7 +179,80 @@ getRegistronById = async (req, res) => {
                 .status(404)
                 .json({ success: false, error: `Registro no encontrado` })
         }
-        return res.status(200).json({ success: true, data: registron })
+        Menu.populate(registron, {path: "desayunoL"},function(err, registron){
+           Menu.populate(registron, {path: "mediaL"},function(err, registron){
+                Menu.populate(registron, {path: "almuerzoL"},function(err, registron){
+                    Menu.populate(registron, {path: "meriendaL"},function(err, registron){
+                        Menu.populate(registron, {path: "cenaL"},function(err, registron){
+                            Menu.populate(registron, {path: "desayunoM"},function(err, registron){
+                                Menu.populate(registron, {path: "mediaM"},function(err, registron){
+                                    Menu.populate(registron, {path: "almuerzoM"},function(err, registron){
+                                        Menu.populate(registron, {path: "meriendaM"},function(err, registron){
+                                            Menu.populate(registron, {path: "cenaM"},function(err, registron){
+                                                Menu.populate(registron, {path: "desayunoX"},function(err, registron){
+                                                    Menu.populate(registron, {path: "mediaX"},function(err, registron){
+                                                        Menu.populate(registron, {path: "almuerzoX"},function(err, registron){
+                                                            Menu.populate(registron, {path: "meriendaX"},function(err, registron){
+                                                                Menu.populate(registron, {path: "cenaX"},function(err, registron){
+                                                                    Menu.populate(registron, {path: "desayunoJ"},function(err, registron){
+                                                                        Menu.populate(registron, {path: "mediaJ"},function(err, registron){
+                                                                            Menu.populate(registron, {path: "almuerzoJ"},function(err, registron){
+                                                                                Menu.populate(registron, {path: "meriendaJ"},function(err, registron){
+                                                                                    Menu.populate(registron, {path: "cenaJ"},function(err, registron){
+                                                                                        Menu.populate(registron, {path: "desayunoV"},function(err, registron){
+                                                                                            Menu.populate(registron, {path: "mediaV"},function(err, registron){
+                                                                                                Menu.populate(registron, {path: "almuerzoV"},function(err, registron){
+                                                                                                    Menu.populate(registron, {path: "meriendaV"},function(err, registron){
+                                                                                                        Menu.populate(registron, {path: "cenaV"},function(err, registron){
+                                                                                                            Menu.populate(registron, {path: "desayunoS"},function(err, registron){
+                                                                                                                Menu.populate(registron, {path: "mediaS"},function(err, registron){
+                                                                                                                    Menu.populate(registron, {path: "almuerzoS"},function(err, registron){
+                                                                                                                        Menu.populate(registron, {path: "meriendaS"},function(err, registron){
+                                                                                                                            Menu.populate(registron, {path: "cenaS"},function(err, registron){
+                                                                                                                                Menu.populate(registron, {path: "desayunoD"},function(err, registron){
+                                                                                                                                    Menu.populate(registron, {path: "mediaD"},function(err, registron){
+                                                                                                                                        Menu.populate(registron, {path: "almuerzoD"},function(err, registron){
+                                                                                                                                            Menu.populate(registron, {path: "meriendaD"},function(err, registron){
+                                                                                                                                                Menu.populate(registron, {path: "cenaD"},function(err, registron){
+                                                                                                                                                  
+                                                                                                                                                                            return res.status(200).json({ success: true, data: registron })
+                                                                                                                                        
+                                                                                                                                                            });
+                                                                                                                                                        });
+                                                                                                                                                    });
+                                                                                                                                                });
+                                                                                                                                            }); 
+                                                                                                                                        });
+                                                                                                                                    });
+                                                                                                                                });
+                                                                                                                            });
+                                                                                                                        }); 
+                                                                                                                    });
+                                                                                                                });
+                                                                                                            });
+                                                                                                        });
+                                                                                                    }); 
+                                                                                                });
+                                                                                            });
+                                                                                        });
+                                                                                    });
+                                                                                }); 
+                                                                            });
+                                                                        });
+                                                                    });
+                                                                });
+                                                            }); 
+                                                        });
+                                                    });
+                                                });
+                                            });
+                                        }); 
+                                    });
+                                });
+                            });
+                        });
+                    }); 
+
     }).catch(err => console.log(err))
 }
 
@@ -192,9 +266,11 @@ getRegistrons = async (req, res) => {
                 .status(404)
                 .json({ success: false, error: `Registro no encontrado` })
         }
-        User.populate(registrons, {path: "pacient"},function(err, registrons){
-            return res.status(200).json({ success: true, data: registrons })
-                    }); 
+        User.populate(registrons, {path: "pacient"},function(err, registrons){                   
+                                                 return res.status(200).json({ success: true, data: registrons })
+                                                                                                                                        
+                                                                                                                                                            });
+                                                                                                                                                       
 
     }).catch(err => console.log(err))
 }

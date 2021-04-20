@@ -11,7 +11,9 @@ const listMovies = () => history.push("/movies/list");
 const homeCita = () => history.push("/citas");
 const homePaciente = () => history.push("/pacientes");
 const homeMenu = () => history.push("/menus");
+const homeEntreno = () => history.push("/entrenos");
 const sesion = () => history.push("/chat/join")
+const sesionP = () => history.push("/pchat/join")
 const logout = () => {
 setUserData({
 token: undefined,
@@ -42,7 +44,8 @@ if(userData.user && userData.user.role == "Nutricionista"){
 
     return (<nav className="auth-options">
                 <button className="btn btn-primary mr-2" onClick={homeMenu}>Comidas</button>
-                <button className="btn btn-primary mr-2" onClick={sesion}>Sesiones</button>
+                <button className="btn btn-primary mr-2" onClick={sesion}>Sesiones Profesionales</button>
+                <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones Paciente</button>
                 <button className="btn btn-primary mr-2" onClick={homePaciente}>Pacientes</button>
                 <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
                 <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
@@ -51,8 +54,11 @@ if(userData.user && userData.user.role == "Nutricionista"){
 }else if(userData.user && userData.user.role == "Entrenador"){
 
     return (<nav className="auth-options">
-                <button className="btn btn-primary mr-2" onClick={createMovie}>Create Movie</button>
-               
+                <button className="btn btn-primary mr-2" onClick={homeEntreno}>Deportes</button>
+                <button className="btn btn-primary mr-2" onClick={sesion}>Sesiones Profesionales</button>
+                <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones Paciente</button>
+                <button className="btn btn-primary mr-2" onClick={homePaciente}>Pacientes</button>
+                <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
                 <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
             </nav>)
 

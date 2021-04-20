@@ -13,6 +13,7 @@ import RegistronsUpdate from './RegistronsUpdate'
 import RegistronsInfo from './RegistronsInfo'
 import RegistronsInsertSocket from './RegistronsInsertSocket'
 import RegistronsInsertSo from './RegistronsInsertSo'
+import RegistronsInsertSoNormal from './RegistronsInsertSoNormal'
 
 export { PacientesHome, PacientesList, PacientesAcceptedList, PacientesInfo, FichasInsert, FichasList, FichasUpdate, FichasInfo, RegistronsInsert, RegistronsList, RegistronsHome, RegistronsUpdate, RegistronsInfo,
-    RegistronsInsertSocket, RegistronsInsertSo }
+    RegistronsInsertSocket, RegistronsInsertSo, RegistronsInsertSoNormal }

@@ -6,6 +6,7 @@ import RegistronsInsertSocket from '../paciente/RegistronsInsertSocket';
 import io from 'socket.io-client';
 import TextEdit from './TextEdit';
 import RegistronsInsertSo from '../paciente/RegistronsInsertSo'
+import RegistroesInsertSo from '../entrenador/RegistroesInsertSo'
 import './SesionHome.css';
 
 
@@ -273,6 +274,13 @@ socket.on('write', (data) => {
         idEdit35="edi35" idEdit36="edi36" idEdit37="edi37" idEdit38="edi38" idEdit39="edi39"
         idEditCal="editCal" idEditHidr="editHidr" idEditProt="editProt" idEditGras="editGras"
         ></RegistronsInsertSo>
+
+      <div class="sesionentrenof">
+        <RegistroesInsertSo  idEdit01="edi01" idEdit02="edi02" idEdit03="edi03" idEdit04="edi04"
+                idEdit05="edi05" idEdit06="edi06" idEdit07="edi07" idEdit08="edi08" idEdit09="edi09"
+                idEdit010="edi010" idEdit011="edi011" 
+                idEditCal0="editCal0" ></RegistroesInsertSo>
+        </div>
         </div>
         );
     }

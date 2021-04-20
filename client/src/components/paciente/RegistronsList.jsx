@@ -25,15 +25,20 @@ import erase from '../images/erase.png'
 import edit from '../images/edit.png'
 import info from '../images/info.png'
 
+
 class InfoRegistron extends Component {
+    
     infoRegistron = event => {
         event.preventDefault()
         window.location.href = `/registrons/info/${this.props.id}`
        
     }
-
+    
     render() {
+       
+        
         return  <button class="buttonlist" onClick={this.infoRegistron} ><img src={info} ></img></button>
+       
     }
 }
 
@@ -102,13 +107,13 @@ class RegistronsList extends Component {
 
     render() {
         const { registrons } = this.state
- 
+        const {userData} = this.props
         console.log('TCL: RegistronsList -> render -> registrons', registrons)
 
-        
+        let columns= []
 
-
-        const columns = [
+        if(userData.user.role=='Nutricionista'){
+         columns = [
             
 
             {
@@ -119,11 +124,7 @@ class RegistronsList extends Component {
                 id:'dateTime',
           
             },
-            {
-                Header: 'Estado de Ánimo',
-                accessor: 'estadoAnimo',
-                filterable: true,
-            },
+         
             {
                 Header: 'Eliminar',
                 accessor: '',
@@ -135,6 +136,7 @@ class RegistronsList extends Component {
                     )
                 },
             },
+            
             {
                 Header: 'Modificar',
                 accessor: '',
@@ -158,6 +160,39 @@ class RegistronsList extends Component {
                 },
             },
         ]
+    }else{
+
+         columns = [
+            
+
+            {
+                Header: 'Fecha',
+                accessor: 'dateTime',
+                filterable: true,
+                Cell: props => <div> {moment(props.value).format('DD/MM/yyyy')} </div>,
+                id:'dateTime',
+          
+            },
+            {
+                Header: 'Estado de Ánimo',
+                accessor: 'estadoAnimo',
+                filterable: true,
+            },
+            
+            {
+                Header: 'Ver',
+                accessor: '',
+                Cell: function(props) {
+                    return (
+                        <span>
+                           <InfoRegistron id={props.original._id} />
+                        </span>
+                    )
+                },
+            },
+        ]
+
+    }
 
       
         
@@ -170,7 +205,7 @@ class RegistronsList extends Component {
                     
         
               
-                    <div>
+                    <div class="reacttableaux">
                   
 
                     <ReactTable

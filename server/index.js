@@ -21,6 +21,8 @@ const asignacionRouter = require('./routes/asignacion-router');
 const fichaRouter = require('./routes/ficha-router');
 const registronRouter = require('./routes/registron-router');
 const menuRouter = require('./routes/menu-router');
+const registroeRouter = require('./routes/registroe-router');
+const entrenoRouter = require('./routes/entreno-router');
 
 const app = express();
 
@@ -71,6 +73,12 @@ io.on('connection', (socket) => {
             socket.broadcast.emit('addRegistron', registron);
        
     });
+
+    socket.on('addRegistroe', (registroe) => {
+    
+        socket.broadcast.emit('addRegistroe', registroe);
+   
+});
 
     socket.on('write2', (evt) => { socket.broadcast.emit('write2', evt); })
 
@@ -123,6 +131,20 @@ io.on('connection', (socket) => {
     socket.on('writeHidr', (evt) => { socket.broadcast.emit('writeHidr', evt); })
     socket.on('writeProt', (evt) => { socket.broadcast.emit('writeProt', evt); })
     socket.on('writeGras', (evt) => { socket.broadcast.emit('writeGras', evt); })
+    socket.on('writeCal0', (evt) => { socket.broadcast.emit('writeCal0', evt); })
+    socket.on('write01', (evt) => { socket.broadcast.emit('write01', evt); })
+    socket.on('write02', (evt) => { socket.broadcast.emit('write02', evt); })
+    socket.on('write03', (evt) => { socket.broadcast.emit('write03', evt); })
+    socket.on('write04', (evt) => { socket.broadcast.emit('write04', evt); })
+    socket.on('write05', (evt) => { socket.broadcast.emit('write05', evt); })
+    socket.on('write06', (evt) => { socket.broadcast.emit('write06', evt); })
+    socket.on('write07', (evt) => { socket.broadcast.emit('write07', evt); })
+    socket.on('write08', (evt) => { socket.broadcast.emit('write08', evt); })
+    socket.on('write09', (evt) => { socket.broadcast.emit('write09', evt); })
+    socket.on('write010', (evt) => { socket.broadcast.emit('write010', evt); })
+    socket.on('write011', (evt) => { socket.broadcast.emit('write011', evt); })
+    socket.on('write012', (evt) => { socket.broadcast.emit('write012', evt); })
+   
     socket.on('clicked', function(data) {
         io.emit('buttonUpdate', data);
   });
@@ -143,6 +165,28 @@ socket.on('clicked6', function(data) {
 });
 socket.on('clicked7', function(data) {
     io.emit('buttonUpdate7', data);
+});
+
+socket.on('clicked01', function(data) {
+    io.emit('buttonUpdate01', data);
+});
+socket.on('clicked02', function(data) {
+io.emit('buttonUpdate02', data);
+});
+socket.on('clicked03', function(data) {
+io.emit('buttonUpdate03', data);
+});
+socket.on('clicked04', function(data) {
+io.emit('buttonUpdate04', data);
+});
+socket.on('clicked05', function(data) {
+io.emit('buttonUpdate05', data);
+});
+socket.on('clicked06', function(data) {
+io.emit('buttonUpdate06', data);
+});
+socket.on('clicked07', function(data) {
+io.emit('buttonUpdate07', data);
 });
 
     socket.on('text', (pack) => {
@@ -171,6 +215,8 @@ app.use('/api', asignacionRouter);
 app.use('/api', fichaRouter);
 app.use('/api', registronRouter);
 app.use('/api', menuRouter);
+app.use('/api', registroeRouter);
+app.use('/api', entrenoRouter);
 
 app.use("/users", require("./routes/users"));
 

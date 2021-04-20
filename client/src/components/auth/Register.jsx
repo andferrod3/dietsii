@@ -45,7 +45,7 @@ return (
 {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
 <form onSubmit={submit}>
 <label class="field">Registrarse como: </label>
-<select class="introduction" id="role" onChange={e => setRole(e.target.value)} >
+<select class="select-css" id="role" onChange={e => setRole(e.target.value)} >
             <option id="" value="">---Selecciona uno---</option>
             <option id="role" value="Nutricionista">Nutricionista</option>
             <option id="role" value="Entrenador">Entrenador</option>

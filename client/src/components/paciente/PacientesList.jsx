@@ -71,7 +71,7 @@ class PacientesList extends Component {
         this.setState({ isLoading: true })
         let { userData } =this.props
 
-
+        if(userData.user.role=='Nutricionista'){
         await api.getAllAsignacionesNotAccepted().then(asignaciones => {
 
             this.setState({
@@ -82,6 +82,18 @@ class PacientesList extends Component {
 
             })
         })
+    }else if(userData.user.role=='Entrenador'){
+        await api.getAllAsignacionesNotAcceptedE().then(asignaciones => {
+
+            this.setState({
+                asignaciones: asignaciones.data.data,
+                isLoading: false,
+               
+                
+
+            })
+        })
+    }
     }
 
    
@@ -147,20 +159,7 @@ class PacientesList extends Component {
                 },
             },
 
-            {
-                Header: 'Ver',
-                accessor: '',
-                Cell: function(props) {
-                    
-                   
-                    return (
-                        <span>
-                            <InfoPacient id={props.original._id} />
-                        </span>
-                    )
-                },
-            },
-            
+           
             
         ]
 
