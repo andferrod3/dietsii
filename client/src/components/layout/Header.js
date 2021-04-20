@@ -8,8 +8,10 @@ render() {
 return (
 
 <header className="header">
+<div>
 <Logo />
 <Link to="/"><h1 className="title">Dietsii</h1></Link>
+</div>
 <AuthOptions />
 </header>
 );

@@ -11,7 +11,7 @@ class Logo extends Component {
     render() {
         return (
             <Wrapper>
-                <img src={logo} width="50" height="50" />
+                <img class="logo" src={logo} width="50" height="50" />
             </Wrapper>
         )
     }

@@ -36,7 +36,7 @@ const registronSchema = new mongoose.Schema({
     mediaS: { type: Schema.ObjectId, ref: "menu" },
     almuerzoS: { type: Schema.ObjectId, ref: "menu" },
     meriendaS: { type: Schema.ObjectId, ref: "menu" },
-    cenaD: { type: Schema.ObjectId, ref: "menu" },
+    cenaS: { type: Schema.ObjectId, ref: "menu" },
     desayunoD: { type: Schema.ObjectId, ref: "menu" },
     mediaD: { type: Schema.ObjectId, ref: "menu" },
     almuerzoD: { type: Schema.ObjectId, ref: "menu" },
