@@ -49,7 +49,7 @@ return (
 
 
 
-);}else if(userData.user.role=="Entrenador"){
+);}else if(userData.user.role=="Entrenador" || userData.user.role == "Paciente"){
   return (
     <div className="registronshome">
 

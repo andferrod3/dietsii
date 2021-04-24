@@ -75,6 +75,7 @@ class CitasUpdate extends Component {
 
         await api.updateCitaById(id, payload).then(res => {
             window.alert(`Cita modificada correctamente`)
+            window.location.href = `/citas`
             this.setState({
                 sessionName: '',
                 dateTime: '',
@@ -100,31 +101,32 @@ class CitasUpdate extends Component {
         const { sessionName, dateTime, professional, pacient } = this.state
         return (
             <Wrapper>
+                <div class="cardcita ucita">
+        <div class="cardcita-title">
                 <Title>Modificar cita</Title>
-
+                </div>
+                <div class="updatecita">
                 <Label>Nombre de la sesión: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={sessionName}
                     onChange={this.handleChangeInputSessionName}
                 />
 
                 <Label>Fecha y hora: </Label>
-                <InputText
-                    type="datetime"
+                <input
+                    class="inputcita"
+                    type="datetime-local"
                     value={dateTime}
                     onChange={this.handleChangeInputDateTime}
                 />
 
-                <Label>Paciente: </Label>
-                <InputText
-                    type="text"
-                    value={pacient}
-                    onChange={this.handleChangeInputPacient}
-                />
-
+               
                 <Button onClick={this.handleUpdateCita}>Modificar cita</Button>
-                <CancelButton href={'/citas/list'}>Cancelar</CancelButton>
+                <CancelButton href={'/citas'}>Cancelar</CancelButton>
+                </div>
+               </div>
             </Wrapper>
         )
     }

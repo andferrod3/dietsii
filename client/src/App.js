@@ -14,11 +14,13 @@ import { CitasList, CitasInsert, CitasUpdate, CitasHome } from './components/cit
 import { MenusList, MenusInsert, MenusHome } from './components/menu';
 import { RegistroesHome, RegistroesList, RegistroesInsert, EntrenosHome, RegistroesInfo } from './components/entrenador';
 import { PacientesList, PacientesHome, PacientesInfo, FichasUpdate, FichasInfo, RegistronsHome, RegistronsUpdate, RegistronsInfo, RegistronsInsertSo } from './components/paciente';
+import {AsignacionInsert, AsignacionEntrenadorInsert} from './components/pacientes';
 import  {useState, useEffect } from 'react';
 import { BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/layout/Header';
 import Home from './components/pages/Home';
+import HomeNotAccepted from './components/pages/HomeNotAccepted'
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import UserContext from './context/userContext';
@@ -64,6 +66,7 @@ function App() {
                     <Header />
                     <Switch>
                         <Route exact path="/" component={Home} />
+                        <Route path="/noaceptado" component={HomeNotAccepted} />
                         <Route path="/chat/join" exact component={Join} />
                         <Route path="/chat" component={SesionHome} />
                         <Route path="/citas" exact component={CitasHome} />
@@ -74,6 +77,8 @@ function App() {
                         <Route path="/menus" exact component={MenusHome} />
                         <Route path="/entrenos" exact component={EntrenosHome} />
                         <Route path="/pchat" component={SesionPHome} />
+                        <Route path="/asignar/nutricionista" component={AsignacionInsert} />
+                        <Route path="/asignar/entrenador" component={AsignacionEntrenadorInsert} />
 
                         <Route path="/pacientes" exact component={PacientesHome} />
                         <Route path="/pacientes/info/:id" exact component={PacientesInfo} />

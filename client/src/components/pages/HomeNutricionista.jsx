@@ -73,7 +73,7 @@ render(){
   const {userData} = this.props
     return(
       <div class="HomeNutricionista">
-          <p class="welcome" >Bienvenido {userData.user.name}</p>
+          <p class="welcome" >Bienvenido/a {userData.user.name}</p>
       
        <div class="containere">
         <div class="panele" id="panele-one" onClick={this.enviaSesionSocket} >

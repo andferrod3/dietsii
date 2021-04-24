@@ -85,7 +85,12 @@ return (
 </div>
 <div class="pairs">
 <label class="field">Sexo: </label>
-<input class="introductionf" type="text" id="sex" onChange={e => setSex(e.target.value)}/>
+<select class="select-css" id="sex"  onChange={e => setSex(e.target.value)} >
+                    <option id="" value="">---Selecciona uno---</option>
+                    <option id="sex" value="Masculino">Masculino</option>
+                    <option id="sex" value="Femenino">Femenino</option>
+                    <option id="sex" value="Otro">Otro</option>
+                </select>
 </div>
 <div class="pairs">
 <label class="field">Altura: </label>

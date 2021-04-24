@@ -105,10 +105,13 @@ class FichasList extends Component {
  
         console.log('TCL: FichasList -> render -> fichas', fichas)
 
-        
+        const {userData} = this.props
 
+        let columns = []
 
-        const columns = [
+        if(userData.user.role=='Nutricionista' || userData.user.role=="Entrenador"){
+
+         columns = [
             
 
             {
@@ -158,7 +161,40 @@ class FichasList extends Component {
                 },
             },
         ]
+    }else{
 
+         columns = [
+            
+
+            {
+                Header: 'Fecha',
+                accessor: 'dateTime',
+                filterable: true,
+                Cell: props => <div> {moment(props.value).format('DD/MM/yyyy')} </div>,
+                id:'dateTime',
+          
+            },
+            {
+                Header: 'Peso',
+                accessor: 'peso',
+                filterable: true,
+            },
+            
+            
+            {
+                Header: 'Ver',
+                accessor: '',
+                Cell: function(props) {
+                    return (
+                        <span>
+                           <InfoFicha id={props.original._id} />
+                        </span>
+                    )
+                },
+            },
+        ]
+
+    }
       
         
         
