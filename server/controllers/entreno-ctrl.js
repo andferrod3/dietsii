@@ -4,6 +4,14 @@ const Entreno = require('../models/entreno.model')
 createEntreno = (req, res) => {
     const body = req.body
 
+    let name = body.name
+    let rutina = body.rutina
+    let calorias = body.calorias
+  
+    if (!name || !rutina || !calorias ){
+        return res.status(400).json({ msg: "Faltan campos por rellenar" });
+        }
+
     if (!body) {
         return res.status(400).json({
             success: false,

@@ -1,10 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../../context/userContext';
-import ErrorNotice from "../misc/ErrorNotice";
+
 import api from '../api'
 import Async from 'react-async';
 import Select from 'react-select';
+import ErrorNotice from "../../components/misc/ErrorNotice";
 
 
 
@@ -44,7 +45,7 @@ try{
     
 
     } catch(err) {
-    
+        err.response.data.msg && setError(err.response.data.msg)
     }
     };
 

@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import io from 'socket.io-client';
 import Async from 'react-async';
 import Select from 'react-select';
+import ErrorNotice from "../misc/ErrorNotice";
 
 
 const Title = styled.h1.attrs({
@@ -90,6 +91,7 @@ class RegistronsInsertSo extends Component {
             objetivoHidr: '',
             objetivoProt: '',
             objetivoGras: '',
+            error: '',
         }
     }
 
@@ -693,7 +695,7 @@ class RegistronsInsertSo extends Component {
             cenaD  }
 
             const {userData, userId} = this.props
-
+        try{
         await api.insertRegistron(payload).then(res => {
             
            this.setState({
@@ -743,9 +745,10 @@ class RegistronsInsertSo extends Component {
            window.alert(`Registro añadido correctamente`)
            window.location.reload()
 
-        }).catch(error => {
-            console.log(error.response)
-        });
+        })
+    } catch(err) {
+        err.response.data.msg && this.setState({error : err.response.data.msg })
+    }
     }
 
     componentWillMount = async () => {
@@ -1436,6 +1439,7 @@ socket.on('buttonUpdate7', function(data){
             almuerzoD,
             meriendaD,
             cenaD,
+            error,
         menus  } = this.state
         const {userData, id} = this.props
         return (
@@ -1444,6 +1448,7 @@ socket.on('buttonUpdate7', function(data){
             <div class="cardcita-title cardcitatitlesesion">
                 <h2>Crear el registro </h2>
                 </div>
+                {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
                 <div class="pairs">
                 <Label>Fecha: </Label>
                 <InputText
@@ -1455,7 +1460,8 @@ socket.on('buttonUpdate7', function(data){
                 </div>
                 <div class="pairs">
                 <Label>Estado de ánimo: </Label>
-                <select id={this.props.idEdit2}  onChange={e => this.setState({estadoAnimo: e.target.value})} >
+                <select class="select-css" id={this.props.idEdit2}  onChange={e => this.setState({estadoAnimo: e.target.value})} >
+                <option id="" value="">---Selecciona uno---</option>
                     <option value="Motivado">Motivado</option>
                     <option value="Desilusionado">Desilusionado</option>
                     <option value="Cansado">Cansado</option>

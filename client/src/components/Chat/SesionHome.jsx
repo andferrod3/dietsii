@@ -8,10 +8,10 @@ import TextEdit from './TextEdit';
 import RegistronsInsertSo from '../paciente/RegistronsInsertSo'
 import RegistroesInsertSo from '../entrenador/RegistroesInsertSo'
 import './SesionHome.css';
-
+import UserContext from '../../context/userContext';
 
 const SesionHome = ({ location }) => {
- 
+    const {userData} = useContext(UserContext);
     /*
   var uid = new String((new Date().getTime()) + (new Date().getUTCMilliseconds())).substr(8, 13);
   var rid = window.location.pathname.substring(7);
@@ -279,7 +279,7 @@ socket.on('write', (data) => {
         <RegistroesInsertSo  idEdit01="edi01" idEdit02="edi02" idEdit03="edi03" idEdit04="edi04"
                 idEdit05="edi05" idEdit06="edi06" idEdit07="edi07" idEdit08="edi08" idEdit09="edi09"
                 idEdit010="edi010" idEdit011="edi011" 
-                idEditCal0="editCal0" ></RegistroesInsertSo>
+                idEditCal0="editCal0" userData={userData} ></RegistroesInsertSo>
         </div>
         </div>
         );

@@ -5,6 +5,50 @@ const Registron = require('../models/registron.model')
 createRegistron = (req, res) => {
     const body = req.body
 
+    let dateTime = body.dateTime
+    let estadoAnimo = body.estadoAnimo
+    let professional = body.professional
+    let pacient = body.pacient
+    let desayunoL = body.desayunoL
+    let mediaL = body.mediaL
+    let almuerzoL = body.almuerzoL
+    let meriendaL = body.meriendaL
+    let cenaL = body.cenaL
+    let desayunoM = body.desayunoM
+    let mediaM = body.mediaM
+    let almuerzoM = body.almuerzoM
+    let meriendaM = body.meriendaM
+    let cenaM = body.cenaM
+    let desayunoX = body.desayunoX
+    let mediaX = body.mediaX
+    let almuerzoX = body.almuerzoX
+    let meriendaX = body.meriendaX
+    let cenaX = body.cenaX
+    let desayunoJ = body.desayunoJ
+    let mediaJ = body.mediaJ
+    let almuerzoJ = body.almuerzoJ
+    let meriendaJ = body.meriendaJ
+    let cenaJ = body.cenaJ
+    let desayunoV = body.desayunoV
+    let mediaV = body.mediaV
+    let almuerzoV = body.almuerzoV
+    let meriendaV = body.meriendaV
+    let cenaV = body.cenaV
+    let desayunoS = body.desayunoS
+    let mediaS = body.mediaS
+    let almuerzoS = body.almuerzoS
+    let meriendaS = body.meriendaS
+    let cenaS = body.cenaS
+    let desayunoD = body.desayunoD
+    let mediaD = body.mediaD
+    let almuerzoD = body.almuerzoD
+    let meriendaD = body.meriendaD
+    let cenaD = body.cenaD
+   
+    if (!dateTime || !estadoAnimo || !professional || !pacient || !desayunoL || !mediaL || !almuerzoL || !meriendaL || !cenaL  || !desayunoM || !mediaM || !almuerzoM || !meriendaM || !cenaM || !desayunoX || !mediaX || !almuerzoX || !meriendaX || !cenaX || !desayunoJ || !mediaJ || !almuerzoJ || !meriendaJ || !cenaJ  || !desayunoV || !mediaV || !almuerzoV || !meriendaV || !cenaV  || !desayunoS || !mediaS || !almuerzoS || !meriendaS || !cenaS  || !desayunoD || !mediaD || !almuerzoD || !meriendaD || !cenaD ){
+        return res.status(400).json({ msg: "Faltan campos por rellenar" });
+        }
+
     if (!body) {
         return res.status(400).json({
             success: false,
