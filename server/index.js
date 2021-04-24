@@ -5,6 +5,7 @@ const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
 const path = require('path');
+const  v4 =  require('uuid');
 require("dotenv").config();
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users.js');
@@ -29,6 +30,7 @@ const app = express();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
 
 bd.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -205,6 +207,15 @@ io.emit('buttonUpdate07', data);
 
   
     })
+
+    socket.on('join-room', (userData) => {
+        const { roomID, userID } = userData;
+        socket.join(roomID);
+        socket.to(roomID).broadcast.emit('new-user-connect', userData);
+        socket.on('disconnect', () => {
+            socket.to(roomID).broadcast.emit('user-disconnected', userID);
+        });
+    });
 });
 
 app.use(router);
@@ -221,7 +232,9 @@ app.use('/api', entrenoRouter);
 app.use("/users", require("./routes/users"));
 
 
-
+app.get('/join', (req, res) => {
+    res.send({ link: v4() });
+});
 
 
 server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
