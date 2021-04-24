@@ -556,7 +556,7 @@ editor41.addEventListener("click", (evt) => {
 
 
     socket.on('write012', data => {
-    editor40.innerHTML = data;
+    editor41.innerHTML = data;
 }); 
 
 
@@ -746,6 +746,7 @@ socket.on('buttonUpdate07', function(data){
               
                 </div>
                 <div id="caloriasdomingo0"></div>
+                <div  id="creationsuccess0"></div>
                 <Button onClick={this.handleComprobarCalorias} id="calculario0" >Calcular</Button>
                 <Button onClick={this.handleIncludeRegistroe} id="creario0" >Crear</Button>
      

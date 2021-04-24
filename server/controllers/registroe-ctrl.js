@@ -5,6 +5,22 @@ const { entreno } = require('../bd')
 createRegistroe = (req, res) => {
     const body = req.body
 
+    let dateTime = body.dateTime
+    let dificultad = body.dificultad
+    let professional = body.professional
+    let pacient = body.pacient
+    let lunes = body.lunes
+    let martes = body.martes
+    let miercoles = body.miercoles
+    let jueves = body.jueves
+    let viernes = body.viernes
+    let sabado = body.sabado
+    let domingo = body.domingo
+   
+    if (!dateTime || !dificultad || !professional || !pacient || !lunes || !martes || !miercoles || !jueves || !viernes  || !sabado || !domingo  ){
+        return res.status(400).json({ msg: "Faltan campos por rellenar" });
+        }
+
     if (!body) {
         return res.status(400).json({
             success: false,

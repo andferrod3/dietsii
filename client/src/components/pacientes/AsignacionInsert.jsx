@@ -38,7 +38,7 @@ try{
     await api.insertAsignacion(newAsignacion).then(res => {
         window.alert(`Solicitud de asignación enviada correctamente`)
         window.location.href = `/noaceptado`
-        window.location.reload()
+       
         this.setState({
      
             dateTime: '',
@@ -54,7 +54,7 @@ try{
     
 
     } catch(err) {
-    
+        err.response.data.msg && setError(err.response.data.msg)
     }
     };
 

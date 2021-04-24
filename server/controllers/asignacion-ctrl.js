@@ -3,6 +3,12 @@ const Asignacion = require('../models/asignacion.model')
 
 createAsignacion = (req, res) => {
     const body = req.body
+    let description = body.description
+
+
+    if (!description){
+        return res.status(400).json({ msg: "Faltan campos por rellenar" });
+        }
 
     if (!body) {
         return res.status(400).json({

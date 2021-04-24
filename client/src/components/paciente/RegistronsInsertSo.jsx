@@ -1767,7 +1767,9 @@ socket.on('buttonUpdate7', function(data){
                     {this.state.menus}
                 </select>
                 </div>
+               
                 <div id="caloriasdomingo"></div>
+                <div id = "creationsuccess"></div>
                 <Button onClick={this.handleComprobarCalorias} id="calculario" >Calcular</Button>
                 <Button onClick={this.handleIncludeRegistron} id="creario" >Crear</Button>
      

@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { useState, Component } from 'react'
 import api from '../api'
 
 import styled from 'styled-components'
 import io from 'socket.io-client';
 import Async from 'react-async';
 import Select from 'react-select';
+import ErrorNotice from "../misc/ErrorNotice";
 
 
 const Title = styled.h1.attrs({
@@ -58,6 +59,7 @@ class RegistroesInsertSoNormal extends Component {
             domingo:'',
             entrenos:[],
             objetivoCal: '',
+            error: '',
            
         }
     }
@@ -259,6 +261,7 @@ class RegistroesInsertSoNormal extends Component {
 
 
     handleIncludeRegistroe = async () => {
+        
         const { dateTime, 
             dificultad, 
             professional,
@@ -285,7 +288,7 @@ class RegistroesInsertSoNormal extends Component {
              }
 
             const {userData, userId} = this.props
-
+        try{
         await api.insertRegistroe(payload).then(res => {
             
            this.setState({
@@ -308,9 +311,10 @@ class RegistroesInsertSoNormal extends Component {
            window.alert(`Registro añadido correctamente`)
            window.location.reload()
 
-        }).catch(error => {
-            console.log(error.response)
-        });
+        })
+    } catch(err) {
+        err.response.data.msg && this.setState({error : err.response.data.msg })
+    }
     }
 
     componentWillMount = async () => {
@@ -556,7 +560,7 @@ socket.on('buttonUpdate07', function(data){
             viernes,
             sabado,
             domingo,
-        entrenos  } = this.state
+        entrenos, error  } = this.state
         const {userData, id} = this.props
         return (
             <div class="cardcita cardcitasesion">
@@ -564,6 +568,7 @@ socket.on('buttonUpdate07', function(data){
             <div class="cardcita-title cardcitatitlesesion">
                 <h2>Crear el registro </h2>
                 </div>
+                {error && <ErrorNotice message={error} clearError={() => this.setState({error:undefined})} />}
                 <div class="pairs">
                 <Label>Fecha: </Label>
                 <InputText
@@ -575,7 +580,8 @@ socket.on('buttonUpdate07', function(data){
                 </div>
                 <div class="pairs">
                 <Label>Dificultad: </Label>
-                <select id={this.props.idEdit02}  onChange={e => this.setState({dificultad: e.target.value})} >
+                <select class="select-css" id={this.props.idEdit02}  onChange={e => this.setState({dificultad: e.target.value})} >
+                <option id="" value="">---Selecciona uno---</option>
                     <option value="Facil">Fácil</option>
                     <option value="Intermedio">Intermedio</option>
                     <option value="Dificil">Difícil</option>

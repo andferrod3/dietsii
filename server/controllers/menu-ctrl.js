@@ -4,6 +4,16 @@ const Menu = require('../models/menu.model')
 createMenu = (req, res) => {
     const body = req.body
 
+    let name = body.name
+    let hidratos = body.hidratos
+    let calorias = body.calorias
+    let proteinas = body.proteinas
+    let grasas = body.grasas
+  
+    if (!name || !hidratos || !calorias || !proteinas || !grasas ){
+        return res.status(400).json({ msg: "Faltan campos por rellenar" });
+        }
+
     if (!body) {
         return res.status(400).json({
             success: false,

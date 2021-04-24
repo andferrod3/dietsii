@@ -3,7 +3,14 @@ const Cita = require('../models/cita.model')
 
 createCita = (req, res) => {
     const body = req.body
+    let sessionName = body.sessionName
+    let dateTime = body.dateTime
+    let professional = body.professional
+    let pacient = body.pacient
 
+    if (!sessionName || !dateTime || !pacient || !professional ){
+        return res.status(400).json({ msg: "Faltan campos por rellenar" });
+        }
     if (!body) {
         return res.status(400).json({
             success: false,
@@ -17,6 +24,9 @@ createCita = (req, res) => {
         return res.status(400).json({ success: false, error: err })
     }
 
+ 
+
+  
     cita
         .save()
         .then(() => {

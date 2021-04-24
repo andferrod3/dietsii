@@ -39,7 +39,7 @@ try{
     })
     
     } catch(err) {
-    
+        err.response.data.msg && setError(err.response.data.msg)
     }
     };
 
