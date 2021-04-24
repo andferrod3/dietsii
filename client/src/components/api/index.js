@@ -32,6 +32,8 @@ export const deleteAsignacionById = id => api.delete(`/asignacion/${id}`)
 export const getAsignacionById = id => api.get(`/asignacion/${id}`)
 export const getAsignacionesProfessionalById = professional => api.get(`/asignaciones/${professional}`)
 export const acceptAsignacionById = (id, payload) => api.put(`/asignacion/${id}`, payload)
+export const getAsignacionEntrenadorToPaciente = id => api.get(`/asignaciones/entrenador/${id}`)
+export const getAsignacionNutricionistaToPaciente = id => api.get(`/asignaciones/nutricionista/${id}`)
 
 export const insertFicha= payload => api.post(`/ficha`, payload)
 export const getAllFichas = () => api.get(`/fichas`)
@@ -94,6 +96,8 @@ const apis = {
     getAllAsignacionesNotAccepted,
     getAllAsignacionesNotAcceptedE,
     acceptAsignacionById,
+    getAsignacionNutricionistaToPaciente,
+    getAsignacionEntrenadorToPaciente,
 
     insertFicha,
     getAllFichas,

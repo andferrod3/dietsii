@@ -166,87 +166,102 @@ class FichasUpdate extends Component {
         const { dateTime, age, sex, altura, peso, cintura, cadera, pecho, muslo, brazo, alergias, restricciones, afecciones, pacient } = this.state
         return (
             <Wrapper>
+                 <div class="cardcita ucita">
+        <div class="cardcita-title">
                 <Title>Modificar ficha</Title>
-
+                </div>
+                <div class="updatecita">
                 <Label>Edad: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={age}
                     onChange={this.handleChangeInputAge}
                 />
 
                 <Label>Sexo: </Label>
-                <InputText
-                    type="text"
-                    value={sex}
-                    onChange={this.handleChangeInputSex}
-                />
+                <select class="select-css" id="sex"  onChange={this.handleChangeInputSex} >
+                    <option id="" value="">---Selecciona uno---</option>
+                    <option id="sex" value="Masculino">Masculino</option>
+                    <option id="sex" value="Femenino">Femenino</option>
+                    <option id="sex" value="Otro">Otro</option>
+                </select>
 
                 <Label>Altura: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={altura}
                     onChange={this.handleChangeInputAltura}
                 />
 
                 <Label>Peso: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={peso}
                     onChange={this.handleChangeInputPeso}
                 />
 
                 <Label>Cintura: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={cintura}
                     onChange={this.handleChangeInputCintura}
                 />
 
                 <Label>Cadera: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={cadera}
                     onChange={this.handleChangeInputCadera}
                 />
 
                 <Label>Pecho: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={pecho}
                     onChange={this.handleChangeInputPecho}
                 />
 
                 <Label>Muslo: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={muslo}
                     onChange={this.handleChangeInputMuslo}
                 />
                 
                 <Label>Brazo: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={brazo}
                     onChange={this.handleChangeInputBrazo}
                 />
 
                 <Label>Alergias: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={alergias}
                     onChange={this.handleChangeInputAlergias}
                 />
 
                 <Label>Restricciones: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={restricciones}
                     onChange={this.handleChangeInputRestricciones}
                 />
 
                 <Label>Afecciones: </Label>
-                <InputText
+                <input
+                    class="inputcita"
                     type="text"
                     value={afecciones}
                     onChange={this.handleChangeInputAfecciones}
@@ -254,7 +269,8 @@ class FichasUpdate extends Component {
                
 
                 <Button onClick={this.handleUpdateFicha}>Modificar ficha</Button>
-     
+                </div>
+               </div>
             </Wrapper>
         )
     }

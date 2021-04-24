@@ -13,5 +13,7 @@ router.get('/asignaciones', AsignacionCtrl.getAsignaciones)
 router.get('/asignaciones/not-accepted', AsignacionCtrl.getAsignacionesNotAcceptedNutricionist)
 router.get('/asignaciones/not-accepted-e', AsignacionCtrl.getAsignacionesNotAcceptedEntrenador)
 router.get('/asignaciones/:id', AsignacionCtrl.getAsignacionesToProfessional)
+router.get('/asignaciones/entrenador/:id', AsignacionCtrl.getAsignacionEntrenadorToPaciente)
+router.get('/asignaciones/nutricionista/:id', AsignacionCtrl.getAsignacionNutricionistaToPaciente)
 
 module.exports = router

@@ -172,6 +172,40 @@ getAsignacionesNotAcceptedEntrenador = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+getAsignacionNutricionistaToPaciente = async (req, res) => {
+    await Asignacion.find({ pacient: req.params.id, type: 'Nutricionista' }, (err, asignaciones) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        if (!asignaciones.length) {
+            return res
+                .status(200)
+                .json({ success: true, data:asignaciones })
+        }
+        User.populate(asignaciones, {path: "pacient"},function(err, asignaciones){
+            return res.status(200).json({ success: true, data: asignaciones })
+                    }); 
+
+    }).catch(err => console.log(err))
+}
+
+getAsignacionEntrenadorToPaciente = async (req, res) => {
+    await Asignacion.find({ pacient: req.params.id, type: 'Entrenador' }, (err, asignaciones) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        if (!asignaciones.length) {
+            return res
+                .status(200)
+                .json({ success: true, data:asignaciones })
+        }
+        User.populate(asignaciones, {path: "pacient"},function(err, asignaciones){
+            return res.status(200).json({ success: true, data: asignaciones })
+                    }); 
+
+    }).catch(err => console.log(err))
+}
+
 module.exports = {
     createAsignacion,
     deleteAsignacion,
@@ -181,4 +215,6 @@ module.exports = {
     getAsignacionesToProfessional,
     getAsignacionesNotAcceptedNutricionist,
     getAsignacionesNotAcceptedEntrenador,
+    getAsignacionEntrenadorToPaciente,
+    getAsignacionNutricionistaToPaciente,
 }

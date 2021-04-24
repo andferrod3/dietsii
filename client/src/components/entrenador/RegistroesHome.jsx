@@ -43,7 +43,7 @@ return (
 
 
 
-);}else if(userData.user.role=="Nutricionista"){
+);}else if(userData.user.role=="Nutricionista" || userData.user.role == "Paciente"){
   return (
     <div className="registronshome">
 
