@@ -5,7 +5,7 @@ import ErrorNotice from "../misc/ErrorNotice";
 import api from '../api'
 import Async from 'react-async';
 import Select from 'react-select';
-
+import emailjs from 'emailjs-com'
 
 
 
@@ -29,7 +29,20 @@ const submit = async (e) => {
     e.preventDefault();
 try{
     const newCita = { sessionName, dateTime, professional, pacient };
+    const pacient_name = pacient.name
+    const email = pacient.email
+    const variables = {pacient_name, dateTime, sessionName, email}
     await api.insertCita(newCita).then(res => {
+        
+        emailjs.sendForm('gmail', 'template_56cxdmb', 
+        null, 'user_VpVRrDLQU90yVeshAi5FH')
+        .then((result) => {
+              console.log(result.text);
+          }, 
+           (error) => {
+              console.log(error.text);
+           });
+
         window.alert(`Cita añadida correctamente`)
         window.location.reload()
         this.setState({
@@ -38,7 +51,9 @@ try{
             professional: '',
             pacient: '',
         })
+    
     })
+   
     
 
     

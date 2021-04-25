@@ -1,5 +1,6 @@
 const { user } = require('../bd')
 const Cita = require('../models/cita.model')
+const notify = require('a1-notify')
 
 createCita = (req, res) => {
     const body = req.body
