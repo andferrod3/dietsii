@@ -10,7 +10,7 @@ import Select from 'react-select';
 
 function AsignacionEntrenadorInsert () {
     const [error, setError] = useState();
-const [dateTime, setDateTime] = useState();
+
 const [description, setDescription] = useState();
 const [pacient, setPacient] = useState();
 const [professional, setProfessional] = useState();
@@ -27,14 +27,14 @@ const tipo = "Entrenador"
 const submit = async (e) => {
     e.preventDefault();
 try{
-    const newAsignacion = {  dateTime, description, pacient, isAccepted, type };
+    const newAsignacion = {   description, pacient, isAccepted, type };
     await api.insertAsignacion(newAsignacion).then(res => {
         window.alert(`Solicitud de asignación enviada correctamente`)
         window.location.href = `/noaceptado`
        
         this.setState({
      
-            dateTime: '',
+         
             description: '',
             pacient: '',
             isAccepted: '',
@@ -66,7 +66,7 @@ return (
 
 <label class="field">Descripción de la solicitud: </label>
 <input class="introduction" type="text" id="description" onChange={e => setDescription(e.target.value)}/>
-<input class="introduction"  id="dateTime" ref={e => setDateTime(fecha)} value={fecha} hidden="true" />
+
 <input class="introduction"  id="type" ref={e => setType(tipo)} value={ tipo } hidden="true" />
 <input class="introduction" id="pacient" ref={e => setPacient(userData.user.id)} value={userData.user.id} hidden="true" />
 <input class="introduction" id="professional" ref={e => setProfessional('')} value={''} hidden="true" />
