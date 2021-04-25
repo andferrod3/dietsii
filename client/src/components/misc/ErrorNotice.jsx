@@ -1,6 +1,4 @@
 import React from 'react';
-import { Icon, InlineIcon } from '@iconify/react';
-import closeCircleOutline from '@iconify-icons/mdi/close-circle-outline';
 import CancelIcon from '@material-ui/icons/Cancel';
 
 function ErrorNotice (props) {
