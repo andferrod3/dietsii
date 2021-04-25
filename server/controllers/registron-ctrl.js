@@ -1,8 +1,8 @@
 const { user } = require('../bd')
 const { menu } = require('../bd')
 const Registron = require('../models/registron.model')
-
-createRegistron = (req, res) => {
+const notify = require('a1-notify')
+createRegistron = async (req, res) => {
     const body = req.body
 
     let dateTime = body.dateTime
@@ -62,9 +62,16 @@ createRegistron = (req, res) => {
         return res.status(400).json({ success: false, error: err })
     }
 
+    const pacientCompleto = await User.findOne({_id: pacient})
+    const cuerpoEmail = 'Hola '+ pacientCompleto.name+',' +
+    '\nya tienes disponible en el sistema un nuevo registro de nutrición. Accede a verlo desde el apartado Registros nutricionales'+
+    '\nUn saludo,'+
+    '\nEquipo Dietsii.';
+
     registron
         .save()
         .then((result) => {
+            notify.email(pacientCompleto.email, 'Nuevo registro nutricional', cuerpoEmail)
             return res.status(201).json({
                 success: true,
                 id: registron._id,

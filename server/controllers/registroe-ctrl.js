@@ -1,8 +1,8 @@
 const { user } = require('../bd')
 const Registroe = require('../models/registroe.model')
 const { entreno } = require('../bd')
-
-createRegistroe = (req, res) => {
+const notify = require('a1-notify')
+createRegistroe = async (req, res) => {
     const body = req.body
 
     let dateTime = body.dateTime
@@ -34,9 +34,16 @@ createRegistroe = (req, res) => {
         return res.status(400).json({ success: false, error: err })
     }
 
+    const pacientCompleto = await User.findOne({_id: pacient})
+    const cuerpoEmail = 'Hola '+ pacientCompleto.name+',' +
+    '\nya tienes disponible en el sistema un nuevo registro de entrenamiento. Accede a verlo desde el apartado Registros deportivos'+
+    '\nUn saludo,'+
+    '\nEquipo Dietsii.';
+
     registroe
         .save()
         .then((result) => {
+            notify.email(pacientCompleto.email, 'Nuevo registro deportivo', cuerpoEmail)
             return res.status(201).json({
                 success: true,
                 id: registroe._id,

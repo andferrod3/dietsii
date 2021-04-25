@@ -1,13 +1,14 @@
 const { user } = require('../bd')
 const Cita = require('../models/cita.model')
-
-createCita = (req, res) => {
+const User = require('../models/user.model')
+const notify = require('a1-notify')
+createCita = async (req, res) => {
     const body = req.body
     let sessionName = body.sessionName
     let dateTime = body.dateTime
     let professional = body.professional
     let pacient = body.pacient
-
+    
     if (!sessionName || !dateTime || !pacient || !professional ){
         return res.status(400).json({ msg: "Faltan campos por rellenar" });
         }
@@ -25,11 +26,18 @@ createCita = (req, res) => {
     }
 
  
-
-  
+    const pacientCompleto = await User.findOne({_id: pacient})
+    const cuerpoEmail = 'Hola '+ pacientCompleto.name+',' +
+    '\nse ha creado en el sistema una nueva cita con un profesional.' +
+    '\nFecha y hora: '+ dateTime+
+    '\nNombre de la sesión: '+sessionName+
+    '\nRecuerda que el nombre de la sesión es el que debe introducir para acceder a la cita con el profesional.'+
+    '\nUn saludo,'+
+    '\nEquipo Dietsii.';
     cita
         .save()
         .then(() => {
+            notify.email(pacientCompleto.email, 'Confirmación de sesión de cita en Dietsii', cuerpoEmail)
             return res.status(201).json({
                 success: true,
                 id: cita._id,
