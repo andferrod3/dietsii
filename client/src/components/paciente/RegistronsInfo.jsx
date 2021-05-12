@@ -66,11 +66,11 @@ return (
       </div>
       <div class="entry-content">
         <ul>
-          <li><strong>Desayuno</strong> {data.data.data.desayunoL.name}</li>
-          <li><strong>Media mañana</strong> {data.data.data.mediaL.name}</li>
-          <li><strong>Almuerzo</strong> {data.data.data.almuerzoL.name}</li>
-          <li><strong>Merienda</strong> {data.data.data.meriendaL.name}</li>
-          <li><strong>Cena</strong> {data.data.data.cenaL.name}</li>
+          <li><strong>Desayuno:</strong> {data.data.data.desayunoL.name}</li>
+          <li><strong>Media mañana:</strong> {data.data.data.mediaL.name}</li>
+          <li><strong>Almuerzo:</strong> {data.data.data.almuerzoL.name}</li>
+          <li><strong>Merienda:</strong> {data.data.data.meriendaL.name}</li>
+          <li><strong>Cena:</strong> {data.data.data.cenaL.name}</li>
         </ul>
       </div>
       
@@ -86,11 +86,11 @@ return (
       </div>
       <div class="entry-content">
         <ul>
-          <li><strong>Desayuno</strong> {data.data.data.desayunoM.name}</li>
-          <li><strong>Media mañana</strong> {data.data.data.mediaM.name}</li>
-          <li><strong>Almuerzo</strong> {data.data.data.almuerzoM.name}</li>
-          <li><strong>Merienda</strong> {data.data.data.meriendaM.name}</li>
-          <li><strong>Cena</strong> {data.data.data.cenaM.name}</li>
+          <li><strong>Desayuno:</strong> {data.data.data.desayunoM.name}</li>
+          <li><strong>Media mañana:</strong> {data.data.data.mediaM.name}</li>
+          <li><strong>Almuerzo:</strong> {data.data.data.almuerzoM.name}</li>
+          <li><strong>Merienda:</strong> {data.data.data.meriendaM.name}</li>
+          <li><strong>Cena:</strong> {data.data.data.cenaM.name}</li>
         </ul>
       </div>
       
@@ -106,11 +106,11 @@ return (
       </div>
       <div class="entry-content">
         <ul>
-          <li><strong>Desayuno</strong> {data.data.data.desayunoX.name}</li>
-          <li><strong>Media mañana</strong> {data.data.data.mediaX.name}</li>
-          <li><strong>Almuerzo</strong> {data.data.data.almuerzoX.name}</li>
-          <li><strong>Merienda</strong> {data.data.data.meriendaX.name}</li>
-          <li><strong>Cena</strong> {data.data.data.cenaX.name}</li>
+          <li><strong>Desayuno:</strong> {data.data.data.desayunoX.name}</li>
+          <li><strong>Media mañana:</strong> {data.data.data.mediaX.name}</li>
+          <li><strong>Almuerzo:</strong> {data.data.data.almuerzoX.name}</li>
+          <li><strong>Merienda:</strong> {data.data.data.meriendaX.name}</li>
+          <li><strong>Cena:</strong> {data.data.data.cenaX.name}</li>
         </ul>
       </div>
       
@@ -126,11 +126,11 @@ return (
       </div>
       <div class="entry-content">
         <ul>
-          <li><strong>Desayuno</strong> {data.data.data.desayunoJ.name}</li>
-          <li><strong>Media mañana</strong> {data.data.data.mediaJ.name}</li>
-          <li><strong>Almuerzo</strong> {data.data.data.almuerzoJ.name}</li>
-          <li><strong>Merienda</strong> {data.data.data.meriendaJ.name}</li>
-          <li><strong>Cena</strong> {data.data.data.cenaJ.name}</li>
+          <li><strong>Desayuno:</strong> {data.data.data.desayunoJ.name}</li>
+          <li><strong>Media mañana:</strong> {data.data.data.mediaJ.name}</li>
+          <li><strong>Almuerzo:</strong> {data.data.data.almuerzoJ.name}</li>
+          <li><strong>Merienda:</strong> {data.data.data.meriendaJ.name}</li>
+          <li><strong>Cena:</strong> {data.data.data.cenaJ.name}</li>
         </ul>
       </div>
       
@@ -146,11 +146,11 @@ return (
       </div>
       <div class="entry-content">
         <ul>
-          <li><strong>Desayuno</strong> {data.data.data.desayunoV.name}</li>
-          <li><strong>Media mañana</strong> {data.data.data.mediaV.name}</li>
-          <li><strong>Almuerzo</strong> {data.data.data.almuerzoV.name}</li>
-          <li><strong>Merienda</strong> {data.data.data.meriendaV.name}</li>
-          <li><strong>Cena</strong> {data.data.data.cenaV.name}</li>
+          <li><strong>Desayuno:</strong> {data.data.data.desayunoV.name}</li>
+          <li><strong>Media mañana:</strong> {data.data.data.mediaV.name}</li>
+          <li><strong>Almuerzo:</strong> {data.data.data.almuerzoV.name}</li>
+          <li><strong>Merienda:</strong> {data.data.data.meriendaV.name}</li>
+          <li><strong>Cena:</strong> {data.data.data.cenaV.name}</li>
         </ul>
       </div>
       
@@ -166,11 +166,11 @@ return (
       </div>
       <div class="entry-content">
         <ul>
-          <li><strong>Desayuno</strong> {data.data.data.desayunoS.name}</li>
-          <li><strong>Media mañana</strong> {data.data.data.mediaS.name}</li>
-          <li><strong>Almuerzo</strong> {data.data.data.almuerzoS.name}</li>
-          <li><strong>Merienda</strong> {data.data.data.meriendaS.name}</li>
-          <li><strong>Cena</strong> {data.data.data.cenaS.name}</li>
+          <li><strong>Desayuno:</strong> {data.data.data.desayunoS.name}</li>
+          <li><strong>Media mañana:</strong> {data.data.data.mediaS.name}</li>
+          <li><strong>Almuerzo:</strong> {data.data.data.almuerzoS.name}</li>
+          <li><strong>Merienda:</strong> {data.data.data.meriendaS.name}</li>
+          <li><strong>Cena:</strong> {data.data.data.cenaS.name}</li>
         </ul>
       </div>
       
@@ -186,11 +186,11 @@ return (
       </div>
       <div class="entry-content">
         <ul>
-          <li><strong>Desayuno</strong> {data.data.data.desayunoD.name}</li>
-          <li><strong>Media mañana</strong> {data.data.data.mediaD.name}</li>
-          <li><strong>Almuerzo</strong> {data.data.data.almuerzoD.name}</li>
-          <li><strong>Merienda</strong> {data.data.data.meriendaD.name}</li>
-          <li><strong>Cena</strong> {data.data.data.cenaD.name}</li>
+          <li><strong>Desayuno:</strong> {data.data.data.desayunoD.name}</li>
+          <li><strong>Media mañana:</strong> {data.data.data.mediaD.name}</li>
+          <li><strong>Almuerzo:</strong> {data.data.data.almuerzoD.name}</li>
+          <li><strong>Merienda:</strong> {data.data.data.meriendaD.name}</li>
+          <li><strong>Cena:</strong> {data.data.data.cenaD.name}</li>
         </ul>
       </div>
       

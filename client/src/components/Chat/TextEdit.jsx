@@ -10,7 +10,7 @@ import RegistronsInsertSo from '../paciente/RegistronsInsertSo'
 import MoviesInsert from '../../pages/MoviesInsert'
 
 import styled from 'styled-components'
-const ENDPOINT = 'localhost:5000';
+const ENDPOINT = 'https://dietsii.herokuapp.com/';
     const socket = io(ENDPOINT);
 
     const InputText = styled.input.attrs({
@@ -266,7 +266,7 @@ handleChangeInputCenaD = async event => {
   handleCreateFicha = async () => {
 
     const l = console.log
-    const ENDPOINT = 'localhost:5000';
+    const ENDPOINT = 'https://dietsii.herokuapp.com/';
     const socket = io(ENDPOINT);
 
     const { dateTime, 
@@ -427,7 +427,7 @@ handleChangeInputCenaD = async event => {
   componentDidMount = async () => {
 
     const l = console.log
-    const ENDPOINT = 'localhost:5000';
+    const ENDPOINT = 'https://dietsii.herokuapp.com/';
     const socket = io(ENDPOINT);
     function getEl(id) {
         return document.getElementById(id)

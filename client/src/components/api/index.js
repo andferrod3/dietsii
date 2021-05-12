@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api',
+    baseURL: 'https://dietsii.herokuapp.com/api',
 })
 
 export const insertMovie = payload => api.post(`/movie`, payload)
@@ -16,6 +16,7 @@ export const updateCitaById = (id, payload) => api.put(`/cita/${id}`, payload)
 export const deleteCitaById = id => api.delete(`/cita/${id}`)
 export const getCitaById = id => api.get(`/cita/${id}`)
 export const getCitasProfessionalById = professional => api.get(`/citas/${professional}`)
+export const getCitasPacientById = pacient => api.get(`/citas/p/${pacient}`)
 
 
 export const getAllUsers = () => api.get(`/users`)
@@ -81,6 +82,7 @@ const apis = {
     deleteCitaById,
     getCitaById,
     getCitasProfessionalById,
+    getCitasPacientById,
 
     getAllUsers,
     getUserById,

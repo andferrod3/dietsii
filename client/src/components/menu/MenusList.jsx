@@ -147,28 +147,7 @@ class MenusList extends Component {
                     )
                 },
             },
-            {
-                Header: 'Modificar',
-                accessor: '',
-                Cell: function(props) {
-                    return (
-                        <span>
-                            <UpdateMenu id={props.original._id} />
-                        </span>
-                    )
-                },
-            },
-            {
-                Header: 'Ver',
-                accessor: '',
-                Cell: function(props) {
-                    return (
-                        <span>
-                           <InfoMenu id={props.original._id} />
-                        </span>
-                    )
-                },
-            },
+            
         ]
 
       

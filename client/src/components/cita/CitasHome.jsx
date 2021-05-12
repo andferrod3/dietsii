@@ -9,6 +9,7 @@ import 'react-calendar/dist/Calendar.css';
 import moment from 'moment'
 import CitasInsert from './CitasInsert';
 import CitasList from './CitasList';
+import CitasListPaciente from './CitasListPaciente';
 import './CitasHome.css'
 
 
@@ -21,7 +22,7 @@ const changeDate = (e) => {
     setDateState(e)
   }
 
-
+if(userData.user.role == "Entrenador" || userData.user.role == "Nutricionista"){
 
 return (
 
@@ -50,5 +51,36 @@ return (
 
 
 );
+
+}else{
+
+  return (
+
+    <div className="cita">
+        
+    <h2 class="titlepage">Apartado de citas</h2>
+    
+    <div class= "row">
+        
+    <div className="bigCalendar-container">
+    <Calendar 
+       value={dateState}
+       onChange={changeDate}
+     />
+     <p class="cardp">La fecha seleccionada es <b>{moment(dateState).format('DD/MM/yyyy')}</b></p>
+      </div>
+    
+    
+    <div class="listado">
+    <CitasListPaciente dateState = {dateState} userData = {userData} />
+    </div>
+    
+    </div>
+    </div>
+    
+    
+    );
+
+}
 }
 export default CitasHome;

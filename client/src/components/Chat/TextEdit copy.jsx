@@ -11,7 +11,7 @@ class TextEdit extends Component {
   componentDidMount = async () => {
 
     const l = console.log
-    const ENDPOINT = 'localhost:5000';
+    const ENDPOINT = 'https://dietsii.herokuapp.com/';
     const socket = io(ENDPOINT);
     function getEl(id) {
         return document.getElementById(id)

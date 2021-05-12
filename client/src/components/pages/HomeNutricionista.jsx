@@ -39,31 +39,31 @@ class HomeNutricionista extends Component {
   enviaMenus = event => {
     event.preventDefault()
 
-    window.location.href = `/menus`
+    window.location.href = "/menus"
 }
 
 enviaSesionSocket = event => {
   event.preventDefault()
 
-  window.location.href = `/chat/join`
+  window.location.href = "/chat/join"
 }
 
 enviaCitas = event => {
   event.preventDefault()
 
-  window.location.href = `/citas`
+  window.location.href = "/citas"
 }
 
 enviaPacientes = event => {
   event.preventDefault()
 
-  window.location.href = `/pacientes`
+  window.location.href = "/pacientes"
 }
 
 enviaSesionPacientes = event => {
   event.preventDefault()
 
-  window.location.href = `/pchat/join`
+  window.location.href = "/pchat/join"
 }
 
 

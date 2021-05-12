@@ -3,6 +3,20 @@ import { useHistory } from 'react-router-dom';
 import UserContext from "../../context/userContext";
 import Async from 'react-async';
 import api from '../api'
+import MenuIcon from '@material-ui/icons/Menu';
+
+
+function myFunction() {
+    var x = document.getElementById("auxauth");
+  
+    if (x.className === "auth-options") {
+        x.className += " responsive";
+      } else {
+        x.className = "auth-options";
+      }
+   
+  }
+
 function AuthOptions () {
 const { userData, setUserData } = useContext(UserContext);
 const history = useHistory();
@@ -16,6 +30,7 @@ const homeMenu = () => history.push("/menus");
 const homeEntreno = () => history.push("/entrenos");
 const sesion = () => history.push("/chat/join");
 const sesionP = () => history.push("/pchat/join");
+
 
 
 
@@ -48,26 +63,35 @@ return (
 
 if(userData.user && userData.user.role == "Nutricionista"){
 
-    return (<nav className="auth-options">
-                <button className="btn btn-primary mr-2" onClick={homeMenu}>Comidas</button>
-                <button className="btn btn-primary mr-2" onClick={sesion}>Sesiones Profesionales</button>
-                <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones Paciente</button>
-                <button className="btn btn-primary mr-2" onClick={homePaciente}>Pacientes</button>
-                <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-            </nav>)
+    return (<div className="auth-options" id="auxauth">
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+    <li><a className="btn btn-primary mr-2" onClick={homeMenu}>Comidas</a></li>
+    <li><a className="btn btn-primary mr-2" onClick={sesion}>Sesiones Profesionales</a></li>
+    <li><a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones Paciente</a></li>
+    <li><a className="btn btn-primary mr-2" onClick={homePaciente}>Pacientes</a></li>
+    <li> <a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+    <li> <a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                </ul>
+            </div>)
 
 }else if(userData.user && userData.user.role == "Entrenador"){
     
 
-    return (<nav className="auth-options">
-                <button className="btn btn-primary mr-2" onClick={homeEntreno}>Deportes</button>
-                <button className="btn btn-primary mr-2" onClick={sesion}>Sesiones Profesionales</button>
-                <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones Paciente</button>
-                <button className="btn btn-primary mr-2" onClick={homePaciente}>Pacientes</button>
-                <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-            </nav>)
+    return (<div className="auth-options" id="auxauth">
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+                <li><a className="btn btn-primary mr-2" onClick={homeEntreno}>Deportes</a></li>
+                <li><a className="btn btn-primary mr-2" onClick={sesion}>Sesiones Profesionales</a></li>
+                <li><a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones Paciente</a></li>
+                <li><a className="btn btn-primary mr-2" onClick={homePaciente}>Pacientes</a></li>
+                <li><a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+                <li><a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                
+                </ul>
+            </div>)
 
 }else if(userData.user && userData.user.role == "Paciente"){
 
@@ -130,15 +154,19 @@ if(userData.user && userData.user.role == "Nutricionista"){
                     return (
                 
 
-                    <nav className="auth-options">
+                        <div className="auth-options" id="auxauth">
+                        <input class="menu-btn" type="checkbox" id="menu-btn" />
+                        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                        <ul class="menu">
                        
-                        <button className="btn btn-primary mr-2" onClick={asignarE}>Registros deportivos</button>
-                        <button className="btn btn-primary mr-2" onClick={asignarN}>Registros nutricionales</button>
-                        <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</button>
-                        <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</button>
-                        <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-                    </nav>
+                        <li> <a className="btn btn-primary mr-2" onClick={asignarE}>Registros deportivos</a></li>
+                        <li> <a className="btn btn-primary mr-2" onClick={asignarN}>Registros nutricionales</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                        </ul>
+            </div>
         
         
                     )
@@ -148,15 +176,19 @@ if(userData.user && userData.user.role == "Nutricionista"){
                     return (
                 
 
-                        <nav className="auth-options">
+                        <div className="auth-options" id="auxauth">
+                        <input class="menu-btn" type="checkbox" id="menu-btn" />
+                        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                        <ul class="menu">
                        
-                        <button className="btn btn-primary mr-2" onClick={noaceptado}>Registros deportivos</button>
-                        <button className="btn btn-primary mr-2" onClick={asignarN}>Registros nutricionales</button>
-                        <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</button>
-                        <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</button>
-                        <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-                    </nav>
+                        <li><a className="btn btn-primary mr-2" onClick={noaceptado}>Registros deportivos</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={asignarN}>Registros nutricionales</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                        </ul>
+            </div>
         
         
                     )
@@ -168,15 +200,19 @@ if(userData.user && userData.user.role == "Nutricionista"){
                     return (
                 
 
-                        <nav className="auth-options">
+                        <div className="auth-options" id="auxauth">
+                        <input class="menu-btn" type="checkbox" id="menu-btn" />
+                        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                        <ul class="menu">
                        
-                        <button className="btn btn-primary mr-2" onClick={registrosEP}>Registros deportivos</button>
-                        <button className="btn btn-primary mr-2" onClick={asignarN}>Registros nutricionales</button>
-                        <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</button>
-                        <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</button>
-                        <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-                    </nav>
+                        <li><a className="btn btn-primary mr-2" onClick={registrosEP}>Registros deportivos</a></li>
+                       <li> <a className="btn btn-primary mr-2" onClick={asignarN}>Registros nutricionales</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                        </ul>
+            </div>
         
         
                     )
@@ -190,15 +226,19 @@ if(userData.user && userData.user.role == "Nutricionista"){
                     return (
                 
 
-                        <nav className="auth-options">
+                        <div className="auth-options" id="auxauth">
+                        <input class="menu-btn" type="checkbox" id="menu-btn" />
+                        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                        <ul class="menu">
                        
-                        <button className="btn btn-primary mr-2" onClick={asignarE}>Registros deportivos</button>
-                        <button className="btn btn-primary mr-2" onClick={noaceptado}>Registros nutricionales</button>
-                        <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</button>
-                        <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</button>
-                        <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-                    </nav>
+                        <li> <a className="btn btn-primary mr-2" onClick={asignarE}>Registros deportivos</a></li>
+                        <li><a className="btn btn-primary mr-2" onClick={noaceptado}>Registros nutricionales</a></li>
+                        <li> <a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+                        <li> <a className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</a></li>
+                        <li> <a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</a></li>
+                        <li> <a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                        </ul>
+            </div>
         
         
                     )
@@ -209,15 +249,19 @@ if(userData.user && userData.user.role == "Nutricionista"){
                     return (
                 
 
-                        <nav className="auth-options">
+                        <div className="auth-options" id="auxauth">
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
                        
-                        <button className="btn btn-primary mr-2" onClick={noaceptado}>Registros deportivos</button>
-                        <button className="btn btn-primary mr-2" onClick={noaceptado}>Registros nutricionales</button>
-                        <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</button>
-                        <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</button>
-                        <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-                    </nav>
+        <li> <a className="btn btn-primary mr-2" onClick={noaceptado}>Registros deportivos</a></li>
+        <li>  <a className="btn btn-primary mr-2" onClick={noaceptado}>Registros nutricionales</a></li>
+        <li>  <a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+        <li>  <a className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</a></li>
+        <li>  <a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</a></li>
+                        <li>  <a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                        </ul>
+            </div>
         
         
                     )
@@ -227,15 +271,19 @@ if(userData.user && userData.user.role == "Nutricionista"){
                     return (
                 
 
-                        <nav className="auth-options">
+                        <div className="auth-options" id="auxauth">
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
                        
-                        <button className="btn btn-primary mr-2" onClick={registrosEP}>Registros deportivos</button>
-                        <button className="btn btn-primary mr-2" onClick={noaceptado}>Registros nutricionales</button>
-                        <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</button>
-                        <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</button>
-                        <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-                    </nav>
+        <li> <a className="btn btn-primary mr-2" onClick={registrosEP}>Registros deportivos</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={noaceptado}>Registros nutricionales</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                        </ul>
+            </div>
         
         
                     )
@@ -249,15 +297,19 @@ if(userData.user && userData.user.role == "Nutricionista"){
                     return (
                 
 
-                        <nav className="auth-options">
+                        <div className="auth-options" id="auxauth">
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
                        
-                        <button className="btn btn-primary mr-2" onClick={asignarE}>Registros deportivos</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosNP}>Registros nutricionales</button>
-                        <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</button>
-                        <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</button>
-                        <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-                    </nav>
+        <li>  <a className="btn btn-primary mr-2" onClick={asignarE}>Registros deportivos</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={registrosNP}>Registros nutricionales</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                        </ul>
+            </div>
         
         
                     )
@@ -267,15 +319,19 @@ if(userData.user && userData.user.role == "Nutricionista"){
                     return (
                 
 
-                        <nav className="auth-options">
+                        <div className="auth-options" id="auxauth">
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
                        
-                        <button className="btn btn-primary mr-2" onClick={noaceptado}>Registros deportivos</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosNP}>Registros nutricionales</button>
-                        <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</button>
-                        <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</button>
-                        <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-                    </nav>
+        <li> <a className="btn btn-primary mr-2" onClick={noaceptado}>Registros deportivos</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={registrosNP}>Registros nutricionales</a></li>
+        <li>  <a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</a></li>
+        <li> <a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                        </ul>
+            </div>
         
         
                     )
@@ -287,15 +343,19 @@ if(userData.user && userData.user.role == "Nutricionista"){
                     return (
                 
 
-                        <nav className="auth-options">
+                        <div className="auth-options" id="auxauth">
+                        <input class="menu-btn" type="checkbox" id="menu-btn" />
+                        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                        <ul class="menu">
                        
-                        <button className="btn btn-primary mr-2" onClick={registrosEP}>Registros deportivos</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosNP}>Registros nutricionales</button>
-                        <button className="btn btn-primary mr-2" onClick={homeCita}>Citas</button>
-                        <button className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</button>
-                        <button className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</button>
-                        <button className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</button>
-                    </nav>
+                        <li> <a className="btn btn-primary mr-2" onClick={registrosEP}>Registros deportivos</a></li>
+                        <li> <a className="btn btn-primary mr-2" onClick={registrosNP}>Registros nutricionales</a></li>
+                        <li> <a className="btn btn-primary mr-2" onClick={homeCita}>Citas</a></li>
+                        <li> <a className="btn btn-primary mr-2" onClick={registrosP}>Mis datos</a></li>
+                        <li> <a className="btn btn-primary mr-2" onClick={sesionP}>Sesiones</a></li>
+                        <li> <a className="btn btn-primary mr-2" onClick={logout}>Cerrar sesión</a></li>
+                        </ul>
+            </div>
         
         
                     )
@@ -318,10 +378,14 @@ if(userData.user && userData.user.role == "Nutricionista"){
         )
 
 }else{
-    return (<nav className="auth-options">
-                <button className="btn btn-primary mr-2" onClick={register}>Registrarse</button>
-                <button className="btn btn-primary mr-2" onClick={login}>Login</button>
-            </nav>)
+    return (<div className="auth-options" id="auxauth">
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+    <li><a className="btn btn-primary mr-2" onClick={register}>Registrarse</a></li>
+    <li><a className="btn btn-primary mr-2" onClick={login}>Login</a></li>
+                </ul>
+            </div>)
 }
 
 }

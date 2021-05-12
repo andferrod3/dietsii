@@ -129,7 +129,7 @@ class RegistroesInsertSo extends Component {
 
    
     handleComprobarCalorias = async () => {
-        const ENDPOINT = 'localhost:5000';
+        const ENDPOINT = 'https://dietsii.herokuapp.com/';
         const socket = io(ENDPOINT);
         const lunes = this.state.lunes;
         const martes = this.state.martes;
@@ -147,9 +147,9 @@ class RegistroesInsertSo extends Component {
         var sumS= 0
         var sumD= 0
 
-       
+        
             await api.getEntrenoById(lunes).then(res => {
-                sumL =   parseInt(res.data.data.calorias)
+                sumL = sumL +  parseInt(res.data.data.calorias)
                 var colorCal
                 if(sumL>parseInt(this.state.objetivoCal)+100){
                     colorCal = '#ff5f5f'
@@ -158,12 +158,12 @@ class RegistroesInsertSo extends Component {
                 }else{
                     colorCal = '#79bd46'
                 }
-               var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumL) 
+               var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumL) 
                socket.emit('clicked01', aux);
         })
 
         await api.getEntrenoById(martes).then(res => {
-            sumM =   parseInt(res.data.data.calorias)
+            sumM = sumM +  parseInt(res.data.data.calorias)
             var colorCal
             if(sumM>parseInt(this.state.objetivoCal)+100){
                 colorCal = '#ff5f5f'
@@ -172,12 +172,12 @@ class RegistroesInsertSo extends Component {
             }else{
                 colorCal = '#79bd46'
             }
-           var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumM)
+           var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumM)
            socket.emit('clicked02', aux);
         })
 
         await api.getEntrenoById(miercoles).then(res => {
-            sumX =   parseInt(res.data.data.calorias)
+            sumX = sumX +  parseInt(res.data.data.calorias)
             var colorCal
                 if(sumX>parseInt(this.state.objetivoCal)+100){
                     colorCal = '#ff5f5f'
@@ -186,12 +186,12 @@ class RegistroesInsertSo extends Component {
                 }else{
                     colorCal = '#79bd46'
                 }
-               var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumX) 
+               var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumX) 
                socket.emit('clicked03', aux);
         })
 
         await api.getEntrenoById(jueves).then(res => {
-            sumJ =   parseInt(res.data.data.calorias)
+            sumJ = sumJ +  parseInt(res.data.data.calorias)
             var colorCal
             if(sumJ>parseInt(this.state.objetivoCal)+100){
                 colorCal = '#ff5f5f'
@@ -201,12 +201,12 @@ class RegistroesInsertSo extends Component {
                 colorCal = '#79bd46'
             }
            
-           var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumJ) 
+           var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumJ) 
            socket.emit('clicked04', aux);
         })
 
         await api.getEntrenoById(viernes).then(res => {
-            sumV =   parseInt(res.data.data.calorias)
+            sumV = sumV +  parseInt(res.data.data.calorias)
             var colorCal
             if(sumV>parseInt(this.state.objetivoCal)+100){
                 colorCal = '#ff5f5f'
@@ -216,12 +216,12 @@ class RegistroesInsertSo extends Component {
                 colorCal = '#79bd46'
             }
             
-           var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumV) 
+           var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumV) 
            socket.emit('clicked05', aux);
         })
 
         await api.getEntrenoById(sabado).then(res => {
-            sumS =   parseInt(res.data.data.calorias)
+            sumS = sumS +  parseInt(res.data.data.calorias)
             var colorCal
             if(sumS>parseInt(this.state.objetivoCal)+100){
                 colorCal = '#ff5f5f'
@@ -231,12 +231,12 @@ class RegistroesInsertSo extends Component {
                 colorCal = '#79bd46'
             }
             
-           var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumS) 
+           var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumS) 
            socket.emit('clicked06', aux);
         })
 
         await api.getEntrenoById(domingo).then(res => {
-            sumD =   parseInt(res.data.data.calorias)
+            sumD = sumD +  parseInt(res.data.data.calorias)
         
             var colorCal
             if(sumD>parseInt(this.state.objetivoCal)+100){
@@ -247,7 +247,7 @@ class RegistroesInsertSo extends Component {
                 colorCal = '#79bd46'
             }
            
-           var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumD) 
+           var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumD) 
            socket.emit('clicked07', aux);
         })
         
@@ -386,7 +386,7 @@ class RegistroesInsertSo extends Component {
     componentDidMount = async () => {
 
         const l = console.log
-        const ENDPOINT = 'localhost:5000';
+        const ENDPOINT = 'https://dietsii.herokuapp.com/';
         const socket = io(ENDPOINT);
         function getEl(id) {
             return document.getElementById(id)
@@ -642,6 +642,7 @@ socket.on('buttonUpdate07', function(data){
                
                 <Label>Dificultad: </Label>
                 <select select class="select-css" id={this.props.idEdit02}  onChange={e => this.setState({dificultad: e.target.value})} >
+                <option id="" value="">---Selecciona uno---</option>
                     <option value="Facil">Fácil</option>
                     <option value="Intermedio">Intermedio</option>
                     <option value="Dificil">Difícil</option>
@@ -652,11 +653,13 @@ socket.on('buttonUpdate07', function(data){
                 <Label>Paciente: </Label>
                 <select class="select-css" id={this.props.idEdit03}  onChange={e => this.setState({paciente: e.target.value})} >
                     {this.state.pacientes}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
               
                 <Label>Profesional: </Label>
                 <select class="select-css" id={this.props.idEdit04}  onChange={e => this.setState({professional: e.target.value})} >
                     {this.state.entrenadores}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
                 </div>
               
@@ -675,8 +678,9 @@ socket.on('buttonUpdate07', function(data){
 <p class="dayl">Lunes</p>
                 <Label>Entreno: </Label>
 
-                <select id={this.props.idEdit05}  onChange={e => this.setState({lunes: e.target.value})} >
+                <select class="select-css" id={this.props.idEdit05}  onChange={e => this.setState({lunes: e.target.value})} >
                     {this.state.entrenos}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
  
                 
@@ -688,8 +692,9 @@ socket.on('buttonUpdate07', function(data){
 <p class="day">Martes</p>
 
                 <Label>Entreno: </Label>
-                <select id={this.props.idEdit06}  onChange={e => this.setState({martes: e.target.value})} >
+                <select class="select-css" id={this.props.idEdit06}  onChange={e => this.setState({martes: e.target.value})} >
                     {this.state.entrenos}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 </div>
@@ -697,8 +702,9 @@ socket.on('buttonUpdate07', function(data){
                 <div class="days daysesion">
 <p class="day">Miércoles</p>
                 <Label>Entreno: </Label>
-                <select id={this.props.idEdit07}  onChange={e => this.setState({miercoles: e.target.value})} >
+                <select class="select-css" id={this.props.idEdit07}  onChange={e => this.setState({miercoles: e.target.value})} >
                     {this.state.entrenos}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
 
@@ -708,8 +714,9 @@ socket.on('buttonUpdate07', function(data){
 <p class="day">Jueves</p>
 
                 <Label>Entreno: </Label>
-                <select id={this.props.idEdit08}  onChange={e => this.setState({jueves: e.target.value})} >
+                <select class="select-css" id={this.props.idEdit08}  onChange={e => this.setState({jueves: e.target.value})} >
                     {this.state.entrenos}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
           
@@ -718,8 +725,9 @@ socket.on('buttonUpdate07', function(data){
                 <div class="days daysesion">
 <p class="day">Viernes</p>
                 <Label>Entreno: </Label>
-                <select id={this.props.idEdit09}  onChange={e => this.setState({viernes: e.target.value})} >
+                <select class="select-css" id={this.props.idEdit09}  onChange={e => this.setState({viernes: e.target.value})} >
                     {this.state.entrenos}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
           
@@ -728,8 +736,9 @@ socket.on('buttonUpdate07', function(data){
                 <div class="days daysesion">
 <p class="day">Sábado</p>
                 <Label>Entreno: </Label>
-                <select id={this.props.idEdit010}  onChange={e => this.setState({sabado: e.target.value})} >
+                <select class="select-css" id={this.props.idEdit010}  onChange={e => this.setState({sabado: e.target.value})} >
                     {this.state.entrenos}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
      
@@ -739,8 +748,9 @@ socket.on('buttonUpdate07', function(data){
                 <div class="days daysesion">
 <p class="day">Domingo</p>
                 <Label>Entreno: </Label>
-                <select id={this.props.idEdit011}  onChange={e => this.setState({domingo: e.target.value})} >
+                <select class="select-css" id={this.props.idEdit011}  onChange={e => this.setState({domingo: e.target.value})} >
                     {this.state.entrenos}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
               

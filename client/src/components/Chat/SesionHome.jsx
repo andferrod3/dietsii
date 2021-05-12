@@ -9,6 +9,7 @@ import RegistronsInsertSo from '../paciente/RegistronsInsertSo'
 import RegistroesInsertSo from '../entrenador/RegistroesInsertSo'
 import './SesionHome.css';
 import UserContext from '../../context/userContext';
+import ChatVideoCall from './ChatVideoCall'
 
 const SesionHome = ({ location }) => {
     const {userData} = useContext(UserContext);
@@ -260,8 +261,8 @@ socket.on('write', (data) => {
 
     */
       
-        <div>
-            <Chat location={location} class="chatsesion"></Chat>
+        <div class="sesionProf">
+            <ChatVideoCall location={location} class="chatsesion"></ChatVideoCall>
         <div>
         </div>
         <RegistronsInsertSo class="registronsesion" idEdit="edi1" idEdit2="edi2" idEdit3="edi3" idEdit4="edi4"

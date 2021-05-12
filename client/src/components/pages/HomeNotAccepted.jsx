@@ -22,7 +22,7 @@ render(){
            <p class="waiting" >Hemos recibido tu solicitud correctamente,
                pero aún necesitamos que uno de nuestros profesionales te acepte
            </p>
-       <ul>
+       <ul class="lirain">
             <li></li>
             <li></li>
             <li></li>

@@ -20,8 +20,8 @@ const submit = async (e) => {
 e.preventDefault();
 try{
 const newUser = {email, password, passwordCheck, surname, name, address, phone, birth, role};
-await axios.post("http://localhost:5000/users/register", newUser);
-const loginResponse = await axios.post("http://localhost:5000/users/login", {
+await axios.post("https://dietsii.herokuapp.com/users/register", newUser);
+const loginResponse = await axios.post("https://dietsii.herokuapp.com/users/login", {
 email, password, 
 });
 setUserData({

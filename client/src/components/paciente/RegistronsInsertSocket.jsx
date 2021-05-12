@@ -9,7 +9,7 @@ import io from 'socket.io-client';
 import { Message, Button, Form, Select } from 'semantic-ui-react';
 
 
-const ENDPOINT = 'localhost:5000';
+const ENDPOINT = 'https://dietsii.herokuapp.com/';
 
 
 class RegistronsInsertSocket extends Component {

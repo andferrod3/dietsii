@@ -312,7 +312,7 @@ class RegistronsInsertSo extends Component {
 
    
     handleComprobarCalorias = async () => {
-        const ENDPOINT = 'localhost:5000';
+        const ENDPOINT = 'https://dietsii.herokuapp.com/';
         const socket = io(ENDPOINT);
         const lunes = [this.state.desayunoL, this.state.mediaL, this.state.almuerzoL, this.state.meriendaL, this.state.cenaL];
         const martes = [this.state.desayunoM, this.state.mediaM, this.state.almuerzoM, this.state.meriendaM, this.state.cenaM];
@@ -366,8 +366,9 @@ class RegistronsInsertSo extends Component {
                 }else{
                     colorGras = '#79bd46'
                 }
-               var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumL) + '</p>, Hidratos: <p style="display: initial;color:' +colorHidr+ ';">' + (parseFloat(this.state.objetivoHidr) - hidratL)
-               + '</p>, Proteinas: <p style="display: initial;color:'+colorProt+ ';">' + (parseFloat(this.state.objetivoProt) - protL) + '</p>, Grasas: <p style="display: initial;color:' +colorGras+ ';">'+ (parseFloat(this.state.objetivoGras) - grasL); +'</p>'
+               var aux =  'Calorías: <p style="display: initial; background-color:'+ colorCal+';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' 
+               + (parseInt(this.state.objetivoCal) - sumL) + '</p>, Hidratos: <p style="display: initial; background-color:' +colorHidr+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoHidr) - hidratL)
+               + '</p>, Proteinas: <p style="display: initial; background-color:'+colorProt+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoProt) - protL) + '</p>, Grasas: <p style="display: initial; background-color:' +colorGras+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">'+ Math.round(parseFloat(this.state.objetivoGras) - grasL); +'</p>'
                socket.emit('clicked', aux);
         })
 
@@ -405,8 +406,8 @@ class RegistronsInsertSo extends Component {
             }else{
                 colorGras = '#79bd46'
             }
-           var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumM) + '</p>, Hidratos: <p style="display: initial;color:' +colorHidr+ ';">' + (parseFloat(this.state.objetivoHidr) - hidratM)
-           + '</p>, Proteinas: <p style="display: initial;color:'+colorProt+ ';">' + (parseFloat(this.state.objetivoProt) - protM) + '</p>, Grasas: <p style="display: initial;color:' +colorGras+ ';">'+ (parseFloat(this.state.objetivoGras) - grasM); +'</p>'
+           var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumM) + '</p>, Hidratos: <p style="display: initial; background-color:' +colorHidr+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoHidr) - hidratM)
+           + '</p>, Proteinas: <p style="display: initial; background-color:'+colorProt+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoProt) - protM) + '</p>, Grasas: <p style="display: initial; background-color:' +colorGras+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">'+ Math.round(parseFloat(this.state.objetivoGras) - grasM); +'</p>'
            socket.emit('clicked2', aux);
         })
 
@@ -444,8 +445,8 @@ class RegistronsInsertSo extends Component {
                 }else{
                     colorGras = '#79bd46'
                 }
-               var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumX) + '</p>, Hidratos: <p style="display: initial;color:' +colorHidr+ ';">' + (parseFloat(this.state.objetivoHidr) - hidratX)
-               + '</p>, Proteinas: <p style="display: initial;color:'+colorProt+ ';">' + (parseFloat(this.state.objetivoProt) - protX) + '</p>, Grasas: <p style="display: initial;color:' +colorGras+ ';">'+ (parseFloat(this.state.objetivoGras) - grasX); +'</p>'
+               var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumX) + '</p>, Hidratos: <p style="display: initial; background-color:' +colorHidr+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoHidr) - hidratX)
+               + '</p>, Proteinas: <p style="display: initial; background-color:'+colorProt+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoProt) - protX) + '</p>, Grasas: <p style="display: initial; background-color:' +colorGras+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">'+ Math.round(parseFloat(this.state.objetivoGras) - grasX); +'</p>'
                socket.emit('clicked3', aux);
         })
 
@@ -483,8 +484,8 @@ class RegistronsInsertSo extends Component {
             }else{
                 colorGras = '#79bd46'
             }
-           var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumJ) + '</p>, Hidratos: <p style="display: initial;color:' +colorHidr+ ';">' + (parseFloat(this.state.objetivoHidr) - hidratJ)
-           + '</p>, Proteinas: <p style="display: initial;color:'+colorProt+ ';">' + (parseFloat(this.state.objetivoProt) - protJ) + '</p>, Grasas: <p style="display: initial;color:' +colorGras+ ';">'+ (parseFloat(this.state.objetivoGras) - grasJ); +'</p>'
+           var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumJ) + '</p>, Hidratos: <p style="display: initial; background-color:' +colorHidr+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoHidr) - hidratJ)
+           + '</p>, Proteinas: <p style="display: initial; background-color:'+colorProt+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoProt) - protJ) + '</p>, Grasas: <p style="display: initial; background-color:' +colorGras+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">'+ Math.round(parseFloat(this.state.objetivoGras) - grasJ); +'</p>'
            socket.emit('clicked4', aux);
         })
 
@@ -522,8 +523,8 @@ class RegistronsInsertSo extends Component {
             }else{
                 colorGras = '#79bd46'
             }
-           var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumV) + '</p>, Hidratos: <p style="display: initial;color:' +colorHidr+ ';">' + (parseFloat(this.state.objetivoHidr) - hidratV)
-           + '</p>, Proteinas: <p style="display: initial;color:'+colorProt+ ';">' + (parseFloat(this.state.objetivoProt) - protV) + '</p>, Grasas: <p style="display: initial;color:' +colorGras+ ';">'+ (parseFloat(this.state.objetivoGras) - grasV); +'</p>'
+           var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumV) + '</p>, Hidratos: <p style="display: initial; background-color:' +colorHidr+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoHidr) - hidratV)
+           + '</p>, Proteinas: <p style="display: initial; background-color:'+colorProt+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoProt) - protV) + '</p>, Grasas: <p style="display: initial; background-color:' +colorGras+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">'+ Math.round(parseFloat(this.state.objetivoGras) - grasV); +'</p>'
            socket.emit('clicked5', aux);
         })
 
@@ -561,8 +562,8 @@ class RegistronsInsertSo extends Component {
             }else{
                 colorGras = '#79bd46'
             }
-           var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumS) + '</p>, Hidratos: <p style="display: initial;color:' +colorHidr+ ';">' + (parseFloat(this.state.objetivoHidr) - hidratS)
-           + '</p>, Proteinas: <p style="display: initial;color:'+colorProt+ ';">' + (parseFloat(this.state.objetivoProt) - protS) + '</p>, Grasas: <p style="display: initial;color:' +colorGras+ ';">'+ (parseFloat(this.state.objetivoGras) - grasS); +'</p>'
+           var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumS) + '</p>, Hidratos: <p style="display: initial; background-color:' +colorHidr+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoHidr) - hidratS)
+           + '</p>, Proteinas: <p style="display: initial; background-color:'+colorProt+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoProt) - protS) + '</p>, Grasas: <p style="display: initial; background-color:' +colorGras+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">'+ Math.round(parseFloat(this.state.objetivoGras) - grasS); +'</p>'
            socket.emit('clicked6', aux);
         })
 
@@ -600,8 +601,8 @@ class RegistronsInsertSo extends Component {
             }else{
                 colorGras = '#79bd46'
             }
-           var aux =  'Calorías: <p style="display: initial;color:' +colorCal+ ';">' + (parseInt(this.state.objetivoCal) - sumD) + '</p>, Hidratos: <p style="display: initial;color:' +colorHidr+ ';">' + (parseFloat(this.state.objetivoHidr) - hidratD)
-           + '</p>, Proteinas: <p style="display: initial;color:'+colorProt+ ';">' + (parseFloat(this.state.objetivoProt) - protD) + '</p>, Grasas: <p style="display: initial;color:' +colorGras+ ';">'+ (parseFloat(this.state.objetivoGras) - grasD); +'</p>'
+           var aux =  'Calorías: <p style="display: initial; background-color:' +colorCal+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + (parseInt(this.state.objetivoCal) - sumD) + '</p>, Hidratos: <p style="display: initial; background-color:' +colorHidr+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoHidr) - hidratD)
+           + '</p>, Proteinas: <p style="display: initial;background-color:'+colorProt+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">' + Math.round(parseFloat(this.state.objetivoProt) - protD) + '</p>, Grasas: <p style="display: initial; background-color:' +colorGras+ ';padding: 0.5%;border-radius: 0.4rem;color: white;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);">'+ Math.round(parseFloat(this.state.objetivoGras) - grasD); +'</p>'
            socket.emit('clicked7', aux);
         })
         }
@@ -824,7 +825,7 @@ class RegistronsInsertSo extends Component {
     componentDidMount = async () => {
 
         const l = console.log
-        const ENDPOINT = 'localhost:5000';
+        const ENDPOINT = 'https://dietsii.herokuapp.com/';
         const socket = io(ENDPOINT);
         function getEl(id) {
             return document.getElementById(id)
@@ -1521,11 +1522,13 @@ socket.on('buttonUpdate7', function(data){
                 <Label>Paciente: </Label>
                 <select class="select-css" id={this.props.idEdit3}  onChange={e => this.setState({paciente: e.target.value})} >
                     {this.state.pacientes}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
                 
                 <Label>Profesional: </Label>
                 <select class="select-css" id={this.props.idEdit4}  onChange={e => this.setState({professional: e.target.value})} >
                     {this.state.nutricionistas}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
                 </div>
                 <div class="pairs">
@@ -1569,28 +1572,33 @@ socket.on('buttonUpdate7', function(data){
 <p class="dayl">Lunes</p>
                 <Label>Desayuno: </Label>
 
-                <select  id={this.props.idEdit5}  onChange={e => this.setState({desayunoL: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit5}  onChange={e => this.setState({desayunoL: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
  
                 <Label>Media mañana: </Label>
-                <select id={this.props.idEdit6}  onChange={e => this.setState({mediaL: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit6}  onChange={e => this.setState({mediaL: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Almuerzo: </Label>
-                <select id={this.props.idEdit7}  onChange={e => this.setState({almuerzoL: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit7}  onChange={e => this.setState({almuerzoL: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Merienda: </Label>
-                <select id={this.props.idEdit8}  onChange={e => this.setState({meriendaL: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit8}  onChange={e => this.setState({meriendaL: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Cena: </Label>
-                <select id={this.props.idEdit9}  onChange={e => this.setState({cenaL: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit9}  onChange={e => this.setState({cenaL: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
                 
                 </div>
@@ -1601,56 +1609,66 @@ socket.on('buttonUpdate7', function(data){
 <p class="day">Martes</p>
 
                 <Label>Desayuno: </Label>
-                <select id={this.props.idEdit10}  onChange={e => this.setState({desayunoM: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit10}  onChange={e => this.setState({desayunoM: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Media mañana: </Label>
-                <select id={this.props.idEdit11}  onChange={e => this.setState({mediaM: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit11}  onChange={e => this.setState({mediaM: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Almuerzo: </Label>
-                <select id={this.props.idEdit12}  onChange={e => this.setState({almuerzoM: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit12}  onChange={e => this.setState({almuerzoM: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Merienda: </Label>
-                <select id={this.props.idEdit13}  onChange={e => this.setState({meriendaM: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit13}  onChange={e => this.setState({meriendaM: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Cena: </Label>
-                <select id={this.props.idEdit14}  onChange={e => this.setState({cenaM: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit14}  onChange={e => this.setState({cenaM: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
                 </div>
                 <div id="caloriasmartes" ></div>
                 <div class="days daysesion">
 <p class="day">Miércoles</p>
                 <Label>Desayuno: </Label>
-                <select id={this.props.idEdit15}  onChange={e => this.setState({desayunoX: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit15}  onChange={e => this.setState({desayunoX: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Media mañana: </Label>
-                <select id={this.props.idEdit16}  onChange={e => this.setState({mediaX: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit16}  onChange={e => this.setState({mediaX: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Almuerzo: </Label>
-                <select id={this.props.idEdit17}  onChange={e => this.setState({almuerzoX: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit17}  onChange={e => this.setState({almuerzoX: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Merienda: </Label>
-                <select id={this.props.idEdit18}  onChange={e => this.setState({meriendaX: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit18}  onChange={e => this.setState({meriendaX: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Cena: </Label>
-                <select id={this.props.idEdit19}  onChange={e => this.setState({cenaX: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit19}  onChange={e => this.setState({cenaX: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
                 </div>
                 <div id="caloriasmiercoles"></div>
@@ -1658,84 +1676,99 @@ socket.on('buttonUpdate7', function(data){
 <p class="day">Jueves</p>
 
                 <Label>Desayuno: </Label>
-                <select id={this.props.idEdit20}  onChange={e => this.setState({desayunoJ: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit20}  onChange={e => this.setState({desayunoJ: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Media mañana: </Label>
-                <select id={this.props.idEdit21}  onChange={e => this.setState({mediaJ: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit21}  onChange={e => this.setState({mediaJ: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Almuerzo: </Label>
-                <select id={this.props.idEdit22}  onChange={e => this.setState({almuerzoJ: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit22}  onChange={e => this.setState({almuerzoJ: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Merienda: </Label>
-                <select id={this.props.idEdit23}  onChange={e => this.setState({meriendaJ: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit23}  onChange={e => this.setState({meriendaJ: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Cena: </Label>
-                <select id={this.props.idEdit24}  onChange={e => this.setState({cenaJ: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit24}  onChange={e => this.setState({cenaJ: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
                 </div>
                 <div id="caloriasjueves"></div>
                 <div class="days daysesion">
 <p class="day">Viernes</p>
                 <Label>Desayuno: </Label>
-                <select id={this.props.idEdit25}  onChange={e => this.setState({desayunoV: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit25}  onChange={e => this.setState({desayunoV: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Media mañana: </Label>
-                <select id={this.props.idEdit26}  onChange={e => this.setState({mediaV: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit26}  onChange={e => this.setState({mediaV: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Almuerzo: </Label>
-                <select id={this.props.idEdit27}  onChange={e => this.setState({almuerzoV: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit27}  onChange={e => this.setState({almuerzoV: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Merienda: </Label>
-                <select id={this.props.idEdit28}  onChange={e => this.setState({meriendaV: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit28}  onChange={e => this.setState({meriendaV: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Cena: </Label>
-                <select id={this.props.idEdit29}  onChange={e => this.setState({cenaV: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit29}  onChange={e => this.setState({cenaV: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
                 </div>
                 <div id="caloriasviernes"></div>
                 <div class="days daysesion">
 <p class="day">Sábado</p>
                 <Label>Desayuno: </Label>
-                <select id={this.props.idEdit30}  onChange={e => this.setState({desayunoS: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit30}  onChange={e => this.setState({desayunoS: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Media mañana: </Label>
-                <select id={this.props.idEdit31}  onChange={e => this.setState({mediaS: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit31}  onChange={e => this.setState({mediaS: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Almuerzo: </Label>
-                <select id={this.props.idEdit32}  onChange={e => this.setState({almuerzoS: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit32}  onChange={e => this.setState({almuerzoS: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Merienda: </Label>
-                <select id={this.props.idEdit33}  onChange={e => this.setState({meriendaS: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit33}  onChange={e => this.setState({meriendaS: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Cena: </Label>
-                <select id={this.props.idEdit34}  onChange={e => this.setState({cenaS: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit34}  onChange={e => this.setState({cenaS: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
                 </div>
 
@@ -1743,28 +1776,33 @@ socket.on('buttonUpdate7', function(data){
                 <div class="days daysesion">
 <p class="day">Domingo</p>
                 <Label>Desayuno: </Label>
-                <select id={this.props.idEdit35}  onChange={e => this.setState({desayunoD: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit35}  onChange={e => this.setState({desayunoD: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Media mañana: </Label>
-                <select id={this.props.idEdit36}  onChange={e => this.setState({mediaD: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit36}  onChange={e => this.setState({mediaD: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Almuerzo: </Label>
-                <select id={this.props.idEdit37}  onChange={e => this.setState({almuerzoD: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit37}  onChange={e => this.setState({almuerzoD: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Merienda: </Label>
-                <select id={this.props.idEdit38}  onChange={e => this.setState({meriendaD: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit38}  onChange={e => this.setState({meriendaD: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
 
                 <Label>Cena: </Label>
-                <select id={this.props.idEdit39}  onChange={e => this.setState({cenaD: e.target.value})} >
+                <select class="select-css selectaux" id={this.props.idEdit39}  onChange={e => this.setState({cenaD: e.target.value})} >
                     {this.state.menus}
+                    <option id="" value="">---Selecciona uno---</option>
                 </select>
                 </div>
                
